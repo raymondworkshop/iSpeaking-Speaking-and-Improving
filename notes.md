@@ -38,6 +38,7 @@
 #### radio
 
 #### reference
+* [宝宝玩英语](http://www.babyfs.cn/about.html)
 * [CS224S / LINGUIST285 - Spoken Language Processing](http://web.stanford.edu/class/cs224s/syllabus.html)
 * [2017 KDD workshop - Advancing Education with Data](http://ml4ed.cc/2017-kdd-workshop/)
 * [2016 NIPS Workshop - Machine Learning for Education](http://ml4ed.cc/2016-nips-workshop/)

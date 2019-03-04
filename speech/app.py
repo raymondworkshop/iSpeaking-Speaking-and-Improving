@@ -8,6 +8,8 @@ a web-based system to improve English (word) pronouncation, and give a marker
 
 from flask import Flask
 
+import speech_recognition as sr
+
 app = Flask(__name__)
 
 #
@@ -23,5 +25,7 @@ def hello():
 #main
 if __name__ == '__main__':
     app.run(debug=True)
+    r = sr.Recognizer()
+
 
 #
