@@ -1,5 +1,9 @@
 
-### notes
+### notes 
+
+#### 2019-03-04 
+* TODO - a web-based system to improve English (word) pronouncation, and give a marker 
+  - flask 
 
 #### Customized speech recognition - A Technical Report
 
