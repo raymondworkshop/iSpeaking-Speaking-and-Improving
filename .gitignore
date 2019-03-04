@@ -1,3 +1,4 @@
 .gitignore
 paper/
 .vscode
+*__pycache__*
