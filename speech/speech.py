@@ -1,4 +1,10 @@
-# -*- coding: utf-8 -*-
+"""
+A view function 
+* Blueprint - organize a group of related views and other code 
+
+@wenlong 
+"""
+
 """
 a web-based system to improve English (word) pronouncation, and give a marker
 
@@ -7,31 +13,32 @@ a web-based system to improve English (word) pronouncation, and give a marker
 """
 import datetime
 
-from flask import Flask
-from flask import render_template, request, redirect
+from flask import Blueprint, flash, g, render_template, request, redirect, session, url_for
+from werkzeug import secure_filename
+#app = Flask(__name__)
 
+bp = Blueprint('speech', __name__)
+
+#
 import speech_recognition as sr
 r = sr.Recognizer()
 
 #import eng_to_ipa as ipa
 
-app = Flask(__name__)
 
-#
-
-
-@app.route('/post', methods = ['GET', 'POST'])
+@bp.route('/post', methods = ['GET', 'POST'])
 def post():
-    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/'
+    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     demo = sr.AudioFile( dir + 'english81.wav')
 
     txt = get_post(demo)
 
     #_ipa = ipa.convert(txt)
-    return txt
+    #return txt
+    return render_template('speech/index.html', posts=txt)
 
 
-def get_post(demo):
+def get_post(demo, check_author=True):
     #
     #microphone = sr.microphone()
     txt = ""
@@ -60,13 +67,25 @@ def get_post(demo):
     #print(txt)  
     return txt
 
+
+@bp.route('/upload', methods=['POST', 'GET'])
+def upload():
+    return render_template('upload.html')
+
+@bp.route('uploader', methods= ['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        f = request.files['file']
+        f.save(secure_filename(f.filename))
+        return 'file uploaded successfully'
+
+
 #main
 if __name__ == '__main__':
-    app.run(debug=True)
+    bp.run(debug=True)
 
     #file
     
-
     #get_post(demo)
     print('Done')
 #

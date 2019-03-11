@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+
+{% include 'upload.html' %}
+
+
+<ul class="entries">
+        {% for entry in entries %}
+           <li><h2>Input:</h2>{{ entry.input|safe }}
+      
+        {% else %}
+           <li><em>No output here so far</em>
+        {% endfor %}
+      
+       </ul>
+
+{% endblock %}
