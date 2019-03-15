@@ -31,9 +31,19 @@ r = sr.Recognizer()
 
 @bp.route('/')
 def index():
-    #return render_template('ispeech/index.html')
-    return render_template('base.html')
-    
+    # fetch from db
+    #
+    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    demo = sr.AudioFile( dir + 'english81.wav')
+
+    txt = get_post(demo)
+    return render_template('ispeech/index.html', posts=txt)
+
+
+@bp.route('/record', methods = ['GET', 'POST'])
+def record():
+
+    return 0
 
 @bp.route('/post', methods = ['GET', 'POST'])
 def post():
