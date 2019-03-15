@@ -1,6 +1,25 @@
 
 ### notes 
 
+#### 2019-03-13 
+* The application Factory 
+    - 
+
+* the layout 
+    - speech/, a Python package containing application code and files 
+    - tests/, a directory containing test modules 
+    - venv/ 
+
+* Start
+  on powershell
+  >  $env:FLASK_APP="ispeech.py" 
+  >  $env:FLASK_ENV = "development"
+  > 
+  on Windows  
+  > set FLASK_APP=ispeech 
+  > set FLASK_ENV=development 
+  > flask run 
+
 #### 2019-03-04 
 * TODO - a web-based system to improve English (word) pronouncation, and give a marker 
   - flask 

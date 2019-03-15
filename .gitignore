@@ -1,4 +1,12 @@
 .gitignore
+venv/
+flask/
+wukong-robot/
+
+*.pyc
+__pycache__/
+
 paper/
+
 .vscode
-*__pycache__*
+audio/

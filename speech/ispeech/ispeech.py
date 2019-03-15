@@ -1,23 +1,26 @@
 """
 A view function 
-* Blueprint - organize a group of related views and other code 
+* Blueprint 
+- organize a group of related views and other code 
+* The blueprint is registered with the speech functions 
 
 @wenlong 
 """
 
-"""
-a web-based system to improve English (word) pronouncation, and give a marker
-
-@author wenlong
-
-"""
 import datetime
 
-from flask import Blueprint, flash, g, render_template, request, redirect, session, url_for
-from werkzeug import secure_filename
-#app = Flask(__name__)
+import functools
 
-bp = Blueprint('speech', __name__)
+from flask import Blueprint, flash, g, render_template, request, redirect, session, url_for
+
+from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug import secure_filename
+from werkzeug.exceptions import abort
+
+
+from ispeech.db import get_db
+
+bp = Blueprint('ispeech', __name__)
 
 #
 import speech_recognition as sr
@@ -25,6 +28,12 @@ r = sr.Recognizer()
 
 #import eng_to_ipa as ipa
 
+
+@bp.route('/')
+def index():
+    #return render_template('ispeech/index.html')
+    return render_template('base.html')
+    
 
 @bp.route('/post', methods = ['GET', 'POST'])
 def post():
@@ -35,7 +44,7 @@ def post():
 
     #_ipa = ipa.convert(txt)
     #return txt
-    return render_template('speech/index.html', posts=txt)
+    return render_template('base.html', posts=txt)
 
 
 def get_post(demo, check_author=True):
@@ -72,7 +81,7 @@ def get_post(demo, check_author=True):
 def upload():
     return render_template('upload.html')
 
-@bp.route('uploader', methods= ['GET', 'POST'])
+@bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         f = request.files['file']
