@@ -1,6 +1,6 @@
 
 #### todo 
-  - Data-intensive appliation
+  * Data-driven appliation
 
 #### reference
 
