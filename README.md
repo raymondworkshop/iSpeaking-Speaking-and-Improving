@@ -1,8 +1,7 @@
 
 #### todo 
-  - Data-intensive appliation
+  * Data-driven appliation
 
 #### reference
 
-#### Copyright (c) HSU
-
+####  Copyright (c) 2019 HSU
