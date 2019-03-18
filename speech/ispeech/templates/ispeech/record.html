@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<p>Text: </p>
+<li id="txt" contenteditable="true">
+    <small>{{ posts | safe }}</small>
+</li>
+
+<p>IPA: </p>
+<li id="ipa"  contenteditable="true">
+    <small>{{ _ipa | safe }}</small>
+</li>
+
+<p>Speech: </p>
+<div id="controls">
+    <button id="recordButton">Record</button>
+    <button id="pauseButton" disabled>Pause</button>
+    <button id="stopButton" disabled>Stop</button>
+</div>
+
+<!--
+<input type="file" accept="audio/*" capture id="recorder">
+<audio id="player" controls></audio>
+<script>
+  var recorder = document.getElementById('recorder');
+  var player = document.getElementById('player');
+
+  var handleSuccess = function(stream) {
+    var context = new AudioContext();
+    var source = context.createMediaStreamSource(stream);
+    var processor = context.createScriptProcessor(1024, 1, 1);
+
+    source.connect(processor);
+    processor.connect(context.destination);
+
+    processor.onaudioprocess = function(e) {
+      // Do something with the data, i.e Convert this to WAV
+      console.log(e.inputBuffer);
+    };
+  };
+
+  navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+      .then(handleSuccess);
+</script>
+-->
+
+<!--
+<script src="record.js"></script>
+<button id="action" onclick="handleAction()">Start ...</button>
+-->
+
+<!--
+<input type="file" accept="audio/*" capture id="recorder">
+<audio id="player" controls></audio>
+<script>
+  var recorder = document.getElementById('recorder');
+  var player = document.getElementById('player');
+
+  recorder.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    // Do something with the audio file.
+    player.srcObject = file;
+  });
+</script>
+-->
+
+<!--
+<ul id="recorder" class="mfb-component--br mfb-zoomin" data-mfb-toggle="hover">
+        <li class="mfb-component__wrap">
+          <a href="#" id="record" class="mfb-component__button--main">
+            <i class="mfb-component__main-icon--resting fa fa-microphone"></i>
+            <i class="mfb-component__main-icon--active fa fa-times"></i>
+          </a>
+          <ul class="mfb-component__list">
+            <li>
+              <a href="#" id="stop-record" data-mfb-label="Stop" class="mfb-component__button--child">
+                <i class="mfb-component__child-icon fas fa-stop"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" id="start-record" data-mfb-label="Start" class="mfb-component__button--child ">
+                <i class="mfb-component__child-icon fas fa-circle"></i>
+              </a>
+            </li>
+          </ul>
+        </li>
+</ul>
+-->
+{% endblock %}

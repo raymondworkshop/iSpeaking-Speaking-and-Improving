@@ -26,7 +26,7 @@ bp = Blueprint('ispeech', __name__)
 import speech_recognition as sr
 r = sr.Recognizer()
 
-#import eng_to_ipa as ipa
+import eng_to_ipa as ipa
 
 
 @bp.route('/')
@@ -37,13 +37,26 @@ def index():
     demo = sr.AudioFile( dir + 'english81.wav')
 
     txt = get_post(demo)
-    return render_template('ispeech/index.html', posts=txt)
+    _ipa = ipa.convert(txt)
+    return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
 
 
 @bp.route('/record', methods = ['GET', 'POST'])
 def record():
+    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    demo = sr.AudioFile( dir + 'english81.wav')
 
-    return 0
+    txt = get_post(demo)
+    _ipa = ipa.convert(txt)
+    return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
+
+"""
+@bp.route()
+def show_entry():
+
+    return render_template()
+"""
+
 
 @bp.route('/post', methods = ['GET', 'POST'])
 def post():

@@ -2,11 +2,11 @@
 <html lang="en-US">
 <!-- Jinja2 -->
 
-<title>{% block title %}{% endblock %} - Speaking</title>
+<title>{% block title %}{% endblock %} - iSpeaking</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         
 <nav>
-    <h1>Speaking</h1>
+    <h1>iSpeaking</h1>
     <ul>
         {% if g.user %}
             <li><span>{{ g.user['username'] }}</span>
@@ -30,12 +30,28 @@
     <!-- content -->
     {% block content %}{% endblock %}
 </section>
-    
+
+<script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+</script>
+
+<script type=text/javascript>
+    $SCRIPT_ROOT= {{request.script_root|tojson|safe}};
+</script>
+
+<!--
+<script type=text/javascript src="{{
+    url_for('static', filename='recorder.js')}}">
+ </script>
+
+<script type=text/javascript src="{{
+    url_for('static', filename='record.js')}}">
+ </script> 
+-->   
     
 <div id="footer">        
-    &copy; Copyright 2019 by <a href="https://www.hsu.edu.hk/hk/">HSU</a>.
+    <small><center>&copy; Copyright 2019 by <a href="https://www.hsu.edu.hk/hk/">HSU</a></small></center>
 </div>
-
 
 
 <!--
