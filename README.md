@@ -1,6 +1,6 @@
 
 #### todo 
-  * Data-Intensive appliations
+  * Data-Intensive applications
 
 #### reference
 
