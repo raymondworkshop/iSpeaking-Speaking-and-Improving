@@ -2,10 +2,10 @@
 
 
 {% block content %}
-  <h1>{% block title %}TEXT{% endblock %}</h1>
+  <h1>{% block title %}Improve your pronouncation{% endblock %}</h1>
   
   {% if g.user %}
-    <a class="action" href="{{ url_for('ispeech.record') }}">Record</a>
+    <a class="action" href="{{ url_for('ispeech.record') }}">Now Say ...</a>
   {% endif %}
   
   

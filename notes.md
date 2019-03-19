@@ -1,6 +1,20 @@
 
 ### notes 
 
+#### 2019-03-19 
+* ASR in ELT 
+  - pronunciation 
+    + compare student voice recordings 
+    + work on phonology and accent 
+  - Interactive practice  
+    + short interactions to speak with a virtual character 
+    + highlight words which are spoken incorrectly 
+    
+  - speech-to-speech translation 
+  - automated marking 
+
+* [IBM Reading Companion](http://www-07.ibm.com/ibm/hk/community/readingcompanion.html)
+
 
 #### 2019-03-13 
 * The application Factory 

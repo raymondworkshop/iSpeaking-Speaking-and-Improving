@@ -33,12 +33,15 @@ import eng_to_ipa as ipa
 def index():
     # fetch from db
     #
+    """
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     demo = sr.AudioFile( dir + 'english81.wav')
 
     txt = get_post(demo)
     _ipa = ipa.convert(txt)
     return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
+    """
+    return render_template('ispeech/index.html')
 
 
 @bp.route('/record', methods = ['GET', 'POST'])
