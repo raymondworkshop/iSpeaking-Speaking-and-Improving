@@ -2,6 +2,7 @@
 venv/
 flask/
 wukong-robot/
+dictate/
 
 *.pyc
 __pycache__/

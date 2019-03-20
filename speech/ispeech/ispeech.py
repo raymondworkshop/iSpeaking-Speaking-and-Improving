@@ -75,29 +75,30 @@ def post():
 
 def get_post(demo, check_author=True):
     #
-    #microphone = sr.microphone()
+    # source = sr.microphone(sample_rate = 48000, chunk_size=8192)
     txt = ""
 
-    with demo as source:
-        #print("Calling microphone ...")
+    with sr.Microphone() as source:
+        print("Calling microphone ...")
         # listen for 2 seconds, and filter out the ambient noise
-        #r.adjust_for_ambient_noise(source, duration=2)
-        #print("Say something!")
-        #audio = r.listen(source)
+        r.adjust_for_ambient_noise(source, duration=2)
+        print("Say something!")
+        speech = r.listen(source)
         #
         # record voice
         
-        audio = r.record(source)
+        #audio = r.record(source)
 
     # recognize speech using Sphinx
     try:
-        print("TEXT: ")
-        txt = r.recognize_sphinx(audio)
-        print(txt)
+        txt = r.recognize_google(speech, language = 'hi-IN')
+        #txt = r.recognize_google(speech)
+        #txt = r.recognize_sphinx(speech)
+        print('TEXT: ' + txt)
     except sr.UnknownValueError:
-        print("Sphinx could not understand audio")
+        print("Could not recognize the audio")
     except sr.RequestError as e:
-        print("Sphinx error; {0}".format(e))
+        print("Error; {0}".format(e))
 
     #print(txt)  
     return txt

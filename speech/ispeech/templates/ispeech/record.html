@@ -18,11 +18,21 @@
 
 <p>You spoke: </p>
 <div id="controls">
-    <button id="recordButton">Start</button>
+    <input type="file" accept="audio/*;capture=microphone">
     <!--
+    <button id="startButton">Start</button>
     <button id="pauseButton" disabled>Pause</button>
-    -->
     <button id="stopButton" disabled>Retry</button>
+    -->
+    <!--
+    <div class="container">
+            <div class="text-box" contenteditable="true"></div>
+            <i class="fa fa-microphone"></i>
+            <select id="voiceSelect"></select>
+    </div>
+     <audio class="sound" src="chime.mp3"></audio>
+    <script src="main.js"></script>
+    -->
 </div>
 
 <!--

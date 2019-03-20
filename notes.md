@@ -1,6 +1,11 @@
 
 ### notes 
 
+#### 2019-03-20 
+* ASR 
+  - A Speech-to-Text API synchronous recognition request
+  - Streaming Recognition (gRPC only) using google cloud
+
 #### 2019-03-19 
 * ASR in ELT 
   - pronunciation 
@@ -9,7 +14,7 @@
   - Interactive practice  
     + short interactions to speak with a virtual character 
     + highlight words which are spoken incorrectly 
-    
+
   - speech-to-speech translation 
   - automated marking 
 
