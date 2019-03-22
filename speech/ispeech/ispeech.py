@@ -46,11 +46,16 @@ def index():
 
 @bp.route('/record', methods = ['GET', 'POST'])
 def record():
+    txt = ""
+    _ipa = "" 
+
+    """
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     demo = sr.AudioFile( dir + 'english81.wav')
 
     txt = get_post(demo)
     _ipa = ipa.convert(txt)
+    """
     return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
 
 """
@@ -78,6 +83,7 @@ def get_post(demo, check_author=True):
     # source = sr.microphone(sample_rate = 48000, chunk_size=8192)
     txt = ""
 
+    """
     with sr.Microphone() as source:
         print("Calling microphone ...")
         # listen for 2 seconds, and filter out the ambient noise
@@ -88,10 +94,16 @@ def get_post(demo, check_author=True):
         # record voice
         
         #audio = r.record(source)
+    """
+    
+    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    demo = sr.AudioFile( dir + 'english81.wav')
+
+    txt = get_post(demo)
 
     # recognize speech using Sphinx
     try:
-        txt = r.recognize_google(speech, language = 'hi-IN')
+        #txt = r.recognize_google(speech, language = 'hi-IN')
         #txt = r.recognize_google(speech)
         #txt = r.recognize_sphinx(speech)
         print('TEXT: ' + txt)

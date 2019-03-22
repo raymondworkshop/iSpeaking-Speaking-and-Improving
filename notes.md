@@ -1,6 +1,11 @@
 
 ### notes 
 
+#### 2019-03-21 
+* work 
+  - uses Recorderjs for audio capture 
+  - a **WebSocket** connection to the Kaldi GStreamer server for speech recognition 
+
 #### 2019-03-20 
 * ASR 
   - A Speech-to-Text API synchronous recognition request
