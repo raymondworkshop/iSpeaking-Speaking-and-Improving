@@ -9,6 +9,8 @@ application factory
 import os
 
 from flask import Flask
+from flask_socketio import SocketIO
+
 
 #app = Flask(__name__)
 
@@ -28,6 +30,8 @@ def create_app(test_config=None):
     else:
         app.config.from_mapping(test_config)
 
+    socketio = SocketIO(app)
+   
     # ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)
@@ -53,6 +57,7 @@ def create_app(test_config=None):
     from . import auth, ispeech
     app.register_blueprint(auth.bp)
     app.register_blueprint(ispeech.bp)
+    app.register_blueprint(audio.bp)
 
     app.add_url_rule('/', endpoint='index')
     

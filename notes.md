@@ -4,8 +4,15 @@
 #### 2019-03-24 
 * progresss
   - capture audio using Recorderjs 
-  - TODO - use websocket for connection
   
+
+* TODO
+  - use websocket for connection
+  - deploying a web app using Heroku and Flask
+  - deploying a mobile app
+
+* reference
+  - [Deploying Deep Learning Models On Web And Mobile](https://reshamas.github.io/deploying-deep-learning-models-on-web-and-mobile/)
 
 #### 2019-03-21 
 * work 

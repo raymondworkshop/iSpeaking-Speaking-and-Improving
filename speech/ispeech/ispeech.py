@@ -17,10 +17,22 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug import secure_filename
 from werkzeug.exceptions import abort
 #from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, disconnect
+
+import scipy.io.wavfile
+import numpy as np
+from collections import OrderedDict
+import sys
+
+# Set this variable to "threading", "eventlet" or "gevent" to test the
+# different async modes, or leave it set to None for the application to choose
+# the best option based on installed packages.
+async_mode = None
 
 from ispeech.db import get_db
 
 bp = Blueprint('ispeech', __name__)
+socketio = SocketIO(bp, binary=True)
 #socketio = (bp)
 #
 import speech_recognition as sr
