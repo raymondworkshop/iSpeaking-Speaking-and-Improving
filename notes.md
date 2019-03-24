@@ -1,6 +1,12 @@
 
 ### notes 
 
+#### 2019-03-24 
+* progresss
+  - capture audio using Recorderjs 
+  - TODO - use websocket for connection
+  
+
 #### 2019-03-21 
 * work 
   - uses Recorderjs for audio capture 
@@ -44,6 +50,10 @@
   > set FLASK_APP=ispeech 
   > set FLASK_ENV=development 
   > flask run 
+
+* freeze 
+  > pip3 freeze > requirements.txt
+  > pip3 install -r requirements.txt
 
 #### 2019-03-04 
 * TODO - a web-based system to improve English (word) pronouncation, and give a marker 
