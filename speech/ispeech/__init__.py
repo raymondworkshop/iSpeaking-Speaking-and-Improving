@@ -14,7 +14,6 @@ from flask import Flask
 
 #import flask.views
 
-
 def create_app(test_config=None):
     # config an instance of Flask
     app = Flask(__name__, instance_relative_config=True)

@@ -16,12 +16,12 @@ from flask import Blueprint, flash, g, render_template, request, redirect, sessi
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug import secure_filename
 from werkzeug.exceptions import abort
-from flask_socketio import SocketIO, emit
+#from flask_socketio import SocketIO, emit
 
 from ispeech.db import get_db
 
 bp = Blueprint('ispeech', __name__)
-socketio = (bp)
+#socketio = (bp)
 #
 import speech_recognition as sr
 r = sr.Recognizer()
