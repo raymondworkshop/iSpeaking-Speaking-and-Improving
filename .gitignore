@@ -3,6 +3,7 @@ venv/
 flask/
 wukong-robot/
 dictate/
+Recorderjs
 
 *.pyc
 __pycache__/
