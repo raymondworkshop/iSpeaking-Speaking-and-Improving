@@ -6,6 +6,7 @@ A view function
 
 @wenlong 
 """
+import os
 
 import datetime
 
@@ -130,20 +131,29 @@ def get_post(demo, check_author=True):
     return txt
 
 #
-@bp.route('/messages', methods=['POST'])
-def upload(request):
+@bp.route('/upload', methods=['GET', 'POST'])
+def upload():
+    txt = ""
+    _ipa = ""
+
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     file = dir + 'recording.wav'
 
-    f = open(file, "wb")
-    # the actual file is in request.body
-    f.write(request.data)
-    f.close()
+    exists = os.path.isfile(file)
 
-    demo = sr.AudioFile(file)
+    if exists:
+        f = open(file, "wb")
+        # the actual file is in request.body
+        f.write(request.data)
+        f.close()
 
-    txt = get_post(demo)
-    _ipa = ipa.convert(txt)
+        demo = sr.AudioFile(file)
+
+        txt = get_post(demo)
+        _ipa = ipa.convert(txt)
+
+    else:
+        print("No file")
 
     return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
 
