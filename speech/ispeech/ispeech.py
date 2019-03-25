@@ -17,9 +17,9 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug import secure_filename
 from werkzeug.exceptions import abort
 #from flask_socketio import SocketIO, emit
-from flask_socketio import SocketIO, emit, disconnect
+#from flask_socketio import SocketIO, emit, disconnect
 
-import scipy.io.wavfile
+#import scipy.io.wavfile
 import numpy as np
 from collections import OrderedDict
 import sys
@@ -32,7 +32,7 @@ async_mode = None
 from ispeech.db import get_db
 
 bp = Blueprint('ispeech', __name__)
-socketio = SocketIO(bp, binary=True)
+#socketio = SocketIO(bp, binary=True)
 #socketio = (bp)
 #
 import speech_recognition as sr
@@ -129,10 +129,24 @@ def get_post(demo, check_author=True):
     #print(txt)  
     return txt
 
+#
+@bp.route('/messages', methods=['POST'])
+def upload(request):
+    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    file = dir + 'recording.wav'
 
-@bp.route('/upload', methods=['POST', 'GET'])
-def upload():
-    return render_template('upload.html')
+    f = open(file, "wb")
+    # the actual file is in request.body
+    f.write(request.data)
+    f.close()
+
+    demo = sr.AudioFile(file)
+
+    txt = get_post(demo)
+    _ipa = ipa.convert(txt)
+
+    return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
+
 
 @bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
@@ -140,7 +154,6 @@ def upload_file():
         f = request.files['file']
         f.save(secure_filename(f.filename))
         return 'file uploaded successfully'
-
 
 #main
 if __name__ == '__main__':
