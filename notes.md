@@ -73,14 +73,7 @@
 #### 2019-01-24 
 * In CMUSphinx phoneme recognition 
 
-#### 2019-01-14 
-* how to be different from the current applications 
 
-* Think more
-    - do u wanna do this really?
-    - how to deal with the people here?
-
-* 不卑不亢才是正道
 
 #### 2019-01-07 
 * use keras 
