@@ -62,14 +62,14 @@ def record():
     txt = ""
     _ipa = "" 
 
-    """
-    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
     demo = sr.AudioFile( dir + 'english81.wav')
+    #demo = dir + 'english81.wav'
 
     txt = get_post(demo)
+    #print(txt)
     _ipa = ipa.convert(txt)
-    """
-
+    
     #ws.send
     return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
 
@@ -85,6 +85,7 @@ def show_entry():
 def post():
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     demo = sr.AudioFile( dir + 'english81.wav')
+    #demo = dir + 'english81.wav'
 
     txt = get_post(demo)
 
@@ -111,16 +112,21 @@ def get_post(demo, check_author=True):
         #audio = r.record(source)
     """
     
-    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
-    demo = sr.AudioFile( dir + 'english81.wav')
+    with demo as source:
+        #r.adjust_for_ambient_noise(source, duration=2)
+        print("demo:", demo)
+        audio = r.record(demo)
+    
+    #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    #demo = sr.AudioFile( dir + 'english81.wav')
 
-    txt = get_post(demo)
+    #txt = get_post(demo)
 
     # recognize speech using Sphinx
     try:
         #txt = r.recognize_google(speech, language = 'hi-IN')
         #txt = r.recognize_google(speech)
-        #txt = r.recognize_sphinx(speech)
+        txt = r.recognize_sphinx(audio)
         print('TEXT: ' + txt)
     except sr.UnknownValueError:
         print("Could not recognize the audio")
@@ -137,20 +143,25 @@ def upload():
     _ipa = ""
 
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
-    file = dir + 'recording.wav'
+    #file = dir + 'recording.wav'
+    file = dir + 'english81.wav'
 
     exists = os.path.isfile(file)
 
     if exists:
+        """
         f = open(file, "wb")
         # the actual file is in request.body
         f.write(request.data)
         f.close()
 
         demo = sr.AudioFile(file)
+        """
+        demo = file
 
         txt = get_post(demo)
         _ipa = ipa.convert(txt)
+    
 
     else:
         print("No file")
