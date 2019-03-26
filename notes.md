@@ -99,7 +99,8 @@
 
 #### radio
 
-#### reference
+#### reference 
+* [2019 KDD Workshop on Deep Learning for Education (DL4Ed)](http://ml4ed.cc/2019-kdd-workshop/)
 * [宝宝玩英语](http://www.babyfs.cn/about.html)
 * [CS224S / LINGUIST285 - Spoken Language Processing](http://web.stanford.edu/class/cs224s/syllabus.html)
 * [2017 KDD workshop - Advancing Education with Data](http://ml4ed.cc/2017-kdd-workshop/)
