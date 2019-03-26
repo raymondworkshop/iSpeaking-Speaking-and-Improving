@@ -3,7 +3,12 @@
 
 #### 2019-03-26
 
-* a simplified web  demo 
+* present a simplified web demo 
+
+* TODO 
+  - socket issue 
+  - check the realted principle and module 
+
 
 #### 2019-03-24 
 * progresss
@@ -11,9 +16,9 @@
   
 
 * TODO
-  - use websocket for connection
-  - deploying a web app using Heroku and Flask
-  - deploying a mobile app
+  - use websocket for connection 
+  - deploying a web app using Heroku and Flask 
+  - deploying a mobile app 
 
 * reference
   - [Deploying Deep Learning Models On Web And Mobile](https://reshamas.github.io/deploying-deep-learning-models-on-web-and-mobile/)
@@ -54,8 +59,8 @@
 
 * Start
   on powershell
-  >  $env:FLASK_APP="ispeech.py" 
-  >  $env:FLASK_ENV = "development"
+  >  $env:FLASK_APP="ispeech.py"  
+  >  $env:FLASK_ENV = "development" 
   > 
   on Windows  
   > set FLASK_APP=ispeech 
@@ -67,7 +72,8 @@
   > pip3 install -r requirements.txt
 
 #### 2019-03-04 
-* TODO - a web-based system to improve English (word) pronouncation, and give a marker 
+* TODO 
+  - a web-based system to improve English (word) pronouncation, and give a marker 
   - flask 
 
 #### Customized speech recognition - A Technical Report
@@ -76,7 +82,6 @@
 
 #### 2019-01-24 
 * In CMUSphinx phoneme recognition 
-
 
 #### 2019-01-07 
 * use keras 
