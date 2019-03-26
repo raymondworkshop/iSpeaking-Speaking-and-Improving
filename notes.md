@@ -8,6 +8,7 @@
 * TODO 
   - socket issue 
   - check the realted principle and module 
+  - read the realted doc 
 
 
 #### 2019-03-24 
