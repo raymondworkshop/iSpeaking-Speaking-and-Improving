@@ -1,6 +1,11 @@
 
 ### notes 
 
+#### 2019-03-27 
+* todo
+  - proposal 
+  - the principle of voice 
+
 #### 2019-03-26
 
 * present a simplified web demo 
