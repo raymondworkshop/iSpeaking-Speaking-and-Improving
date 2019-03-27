@@ -10,7 +10,7 @@ import os
 
 from flask import Flask
 #from flask_socketio import SocketIO
-
+#from flask_sslify import SSLify
 
 #app = Flask(__name__)
 
@@ -61,5 +61,6 @@ def create_app(test_config=None):
 
     app.add_url_rule('/', endpoint='index')
     
+    #sslify = SSLify(app)
 
     return app

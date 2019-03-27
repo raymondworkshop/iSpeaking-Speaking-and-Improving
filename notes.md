@@ -6,9 +6,12 @@
 * present a simplified web demo 
 
 * TODO 
+  - HTTPS connection
+    + [HTTPS and trust chain in Flask](https://carolinafernandez.github.io/development/2017/09/13/HTTPS-and-trust-chain-in-Flask)
   - socket issue 
-  - check the realted principle and module 
-  - read the realted doc 
+    + flask socketio bp 
+  - the realted doc 
+    + check the realted principle and module 
 
 
 #### 2019-03-24 
@@ -19,7 +22,7 @@
 * TODO
   - use websocket for connection 
   - deploying a web app using Heroku and Flask 
-  - deploying a mobile app 
+  - <del>deploying a mobile app </del>
 
 * reference
   - [Deploying Deep Learning Models On Web And Mobile](https://reshamas.github.io/deploying-deep-learning-models-on-web-and-mobile/)

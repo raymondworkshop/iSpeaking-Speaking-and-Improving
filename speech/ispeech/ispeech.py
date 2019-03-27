@@ -24,6 +24,7 @@ from werkzeug.exceptions import abort
 import numpy as np
 from collections import OrderedDict
 import sys
+#from flask_sslify import SSLify
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
@@ -178,7 +179,8 @@ def upload_file():
 
 #main
 if __name__ == '__main__':
-    bp.run(debug=True)
+    bp.run(ssl_context='adhoc', debug=True)
+
 
     #file
     
