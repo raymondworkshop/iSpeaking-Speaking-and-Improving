@@ -3,7 +3,6 @@
 
 #### 2019-03-27 
 * todo
-  - proposal 
   - the principle of voice 
 
 #### 2019-03-26
