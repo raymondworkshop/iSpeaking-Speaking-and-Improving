@@ -1,9 +1,11 @@
 
 ### notes 
 
+#### 2019-04-01 
+* 
+
 #### 2019-03-27 
-* todo
-  - proposal 
+* todo 
   - the principle of voice 
 
 #### 2019-03-26
@@ -15,7 +17,7 @@
     + [HTTPS and trust chain in Flask](https://carolinafernandez.github.io/development/2017/09/13/HTTPS-and-trust-chain-in-Flask)
   - socket issue 
     + flask socketio bp 
-  - the realted doc 
+  - the realted resource  
     + check the realted principle and module 
 
 
