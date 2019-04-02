@@ -9,7 +9,7 @@
 
 
 #### 2019-03-27 
-* todo 
+* todo
   - the principle of voice 
 
 #### 2019-03-26
