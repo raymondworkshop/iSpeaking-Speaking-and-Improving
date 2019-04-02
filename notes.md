@@ -1,8 +1,9 @@
 
 ### notes 
 
-#### 2019-04-01 
-* 
+#### 2019-04-02 
+* check the code HTTPS connection 
+* read a doc on phonetics from a computational perspective referenced on slp2 
 
 #### 2019-03-27 
 * todo 
