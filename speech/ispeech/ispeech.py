@@ -19,12 +19,16 @@ from werkzeug import secure_filename
 from werkzeug.exceptions import abort
 #from flask_socketio import SocketIO, emit
 #from flask_socketio import SocketIO, emit, disconnect
+from werkzeug.serving import run_simple
 
 #import scipy.io.wavfile
 import numpy as np
 from collections import OrderedDict
 import sys
 #from flask_sslify import SSLify
+#from OpenSSL import SSL
+import ssl
+
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
@@ -179,10 +183,23 @@ def upload_file():
 
 #main
 if __name__ == '__main__':
-    bp.run(ssl_context='adhoc', debug=True)
+    """
+    context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+    context.verify_mode = ssl.CERT_REQUIRED
+    context.load_verify_locations("ca.crt")
+    context.load_cert_chain("server.crt", "server.key")
+    serving.run_simple("0.0.0.0", 5000, bp, ssl_context="adhoc",debug=True)
+    """
+    #dir = 'C:/Users/raymondzhao/myproject/dev.speech/'
+    #ssl_context=(dir + 'ssl.cert', dir + 'ssl.key')
+    #context.load_verify_locations("ca.crt")
+    #bp.run(host='127.0.0.1', port='80', debug=True, threaded=True,ssl_context=context)
 
-
+    #run_simple('localhost', 4000, bp, debug=True, threaded=True, ssl_context=ssl_context)
+    #bp.run(host='127.0.0.1', port=80, debug=True, threaded=True,ssl_context=context)
     #file
+
+    bp.run(ssl_context='adhoc', port='80', debug=True, threaded=True)
     
     #get_post(demo)
     print('Done')

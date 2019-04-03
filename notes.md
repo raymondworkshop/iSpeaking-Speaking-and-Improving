@@ -1,6 +1,9 @@
 
 ### notes 
 
+#### 2019-04-03 
+* try to use Heroku TO deploy the HTTPS 
+
 #### 2019-04-02 
 * check the code HTTPS connection 
 * read a doc on phonetics from a computational perspective referenced on slp2 
