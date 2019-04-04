@@ -7,6 +7,7 @@ Recorderjs
 
 *.pyc
 __pycache__/
+/ispeaking/ispeech/__pycache__/ 
 
 paper/
 _speech/

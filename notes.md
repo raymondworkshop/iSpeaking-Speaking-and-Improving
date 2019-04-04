@@ -1,6 +1,10 @@
 
 ### notes 
 
+#### 2019-04-04 
+* 
+https://ispeech.herokuapp.com/ | https://git.heroku.com/ispeech.git
+
 #### 2019-04-03 
 * try to use Heroku TO deploy the HTTPS 
 
