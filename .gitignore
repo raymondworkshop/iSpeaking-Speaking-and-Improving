@@ -9,5 +9,6 @@ Recorderjs
 __pycache__/
 
 paper/
+_speech/
 
 .vscode
