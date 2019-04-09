@@ -1,5 +1,9 @@
 
 ### notes 
+#### 2019-04-09 
+* 'Acoustic Phonetics' part on slp2 
+* TODO 
+  - fix the interface issues soon 
 
 #### 2019-04-04 
 * check the problems to deploy on heroku
@@ -11,8 +15,6 @@
 #### 2019-04-02 
 * check the code HTTPS connection 
 * read a doc on phonetics from a computational perspective referenced on slp2 
-
-#### 2019-04-01  
 
 
 #### 2019-03-27 
