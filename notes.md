@@ -1,5 +1,12 @@
-
 ### notes 
+
+#### 2019-04-11 
+* fix the file upload issue 
+  - 
+  
+* [check Heroku App with Flask](http://clouddatafacts.com/heroku/heroku-flask/heroku_flask_getting_started.html)
+
+
 #### 2019-04-09 
 * 'Acoustic Phonetics' part on slp2 
 * TODO 

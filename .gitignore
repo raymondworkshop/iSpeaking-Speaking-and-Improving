@@ -12,4 +12,5 @@ __pycache__/
 paper/
 _speech/
 
-.vscode
+.vscode/
+gcloud_speech_voice_recorder/

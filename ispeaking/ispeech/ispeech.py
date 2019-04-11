@@ -27,13 +27,14 @@ from collections import OrderedDict
 import sys
 #from flask_sslify import SSLify
 #from OpenSSL import SSL
-import ssl
+#import ssl
+import subprocess
 
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
 # the best option based on installed packages.
-async_mode = None
+#async_mode = None
 
 from ispeech.db import get_db
 
@@ -141,6 +142,28 @@ def get_post(demo, check_author=True):
     #print(txt)  
     return txt
 
+
+@bp.route('/uploads', methods=['POST'])
+def save_audio():
+    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    #demo = sr.AudioFile( dir + 'english81.wav')
+
+    rawAudio = request.get_data()
+    audioFile = open('RecordedFile.wav', 'wb')
+    audioFile.write(rawAudio)
+    audioFile.close()
+
+    return speech_to_text()
+    
+
+def speech_to_text():
+    subprocess.run('python3 speechtotext.py', shell=True)
+    inFile = open(PATH + 'result/result.txt', 'r')
+    transcript = ''
+    for line in inFile:
+        transcript += line
+    print(transcript)
+    return transcript
 #
 @bp.route('/upload', methods=['GET', 'POST'])
 def upload():
@@ -199,7 +222,8 @@ if __name__ == '__main__':
     #bp.run(host='127.0.0.1', port=80, debug=True, threaded=True,ssl_context=context)
     #file
 
-    bp.run(ssl_context='adhoc', port='80', debug=True, threaded=True)
+    #bp.run(ssl_context='adhoc', port='80', debug=True, threaded=True)
+    bp.run(host='127.0.0.1', port='4000', debug=True, threaded=True)
     
     #get_post(demo)
     print('Done')
