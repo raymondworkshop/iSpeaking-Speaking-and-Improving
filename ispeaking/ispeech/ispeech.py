@@ -86,7 +86,6 @@ def show_entry():
     return render_template()
 """
 
-
 @bp.route('/post', methods = ['GET', 'POST'])
 def post():
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
@@ -154,7 +153,7 @@ def save_audio():
     audioFile.close()
 
     return speech_to_text()
-    
+
 
 def speech_to_text():
     subprocess.run('python3 speechtotext.py', shell=True)
@@ -164,6 +163,7 @@ def speech_to_text():
         transcript += line
     print(transcript)
     return transcript
+
 #
 @bp.route('/upload', methods=['GET', 'POST'])
 def upload():
@@ -223,7 +223,7 @@ if __name__ == '__main__':
     #file
 
     #bp.run(ssl_context='adhoc', port='80', debug=True, threaded=True)
-    bp.run(host='127.0.0.1', port='4000', debug=True, threaded=True)
+    bp.run(host='127.0.0.1', port='4000', debug=True, threaded=True, ssl_context="adhoc")
     
     #get_post(demo)
     print('Done')
