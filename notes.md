@@ -1,5 +1,8 @@
 ### notes 
 
+#### 2019-04-15 
+* plan to talk with Dr. Lam 
+
 #### 2019-04-12 
 * coding the syn function
 

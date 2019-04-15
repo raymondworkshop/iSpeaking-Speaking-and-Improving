@@ -63,6 +63,6 @@ def create_app(test_config=None):
     app.add_url_rule('/', endpoint='index')
     
     #sslify = SSLify(app)
-    socketio.init_app(app)
+    socketio.init_app(app, binary=True)
 
     return app

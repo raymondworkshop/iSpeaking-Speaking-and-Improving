@@ -17,14 +17,14 @@ from flask import Blueprint, flash, g, render_template, request, redirect, sessi
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug import secure_filename
 from werkzeug.exceptions import abort
-from flask_socketio import SocketIO, emit
+from flask_socketio import emit
 #from flask_socketio import SocketIO, emit, disconnect
 from werkzeug.serving import run_simple
 
 #import scipy.io.wavfile
 import numpy as np
 from collections import OrderedDict
-import sys
+#import sys
 #from flask_sslify import SSLify
 #from OpenSSL import SSL
 #import ssl
@@ -46,6 +46,9 @@ import speech_recognition as sr
 r = sr.Recognizer()
 
 import eng_to_ipa as ipa
+
+import uuid
+import wave
 
 
 @bp.route('/')
@@ -167,7 +170,6 @@ def upload():
         txt = get_post(demo)
         _ipa = ipa.convert(txt)
     
-
     else:
         print("No file")
 
@@ -181,6 +183,7 @@ def upload_file():
         f.save(secure_filename(f.filename))
         return 'file uploaded successfully'
 
+#
 @socketio.on('start-recording', namespace='/audio')
 def start_recording():
     """Start recording audio from the client."""
