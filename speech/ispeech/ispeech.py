@@ -16,7 +16,7 @@ from flask import Blueprint, flash, g, render_template, request, redirect, sessi
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug import secure_filename
 from werkzeug.exceptions import abort
-#from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit
 #from flask_socketio import SocketIO, emit, disconnect
 
 #import scipy.io.wavfile
@@ -109,17 +109,22 @@ def get_post(demo, check_author=True):
         
         #audio = r.record(source)
     """
-    
-    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
-    demo = sr.AudioFile( dir + 'english81.wav')
 
-    txt = get_post(demo)
+    
+    
+    #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    #demo = sr.AudioFile( dir + 'english81.wav')
+
+    with demo as source:
+        audio = r.record(demo)
+
+    #txt = get_post(demo)
 
     # recognize speech using Sphinx
     try:
         #txt = r.recognize_google(speech, language = 'hi-IN')
         #txt = r.recognize_google(speech)
-        #txt = r.recognize_sphinx(speech)
+        txt = r.recognize_sphinx(speech)
         print('TEXT: ' + txt)
     except sr.UnknownValueError:
         print("Could not recognize the audio")

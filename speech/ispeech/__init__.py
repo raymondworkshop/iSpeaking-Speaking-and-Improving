@@ -11,7 +11,6 @@ import os
 from flask import Flask
 #from flask_socketio import SocketIO
 
-
 #app = Flask(__name__)
 
 #import flask.views
@@ -21,6 +20,7 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
+        FILEDIR='static/_files/'
         # database
         DATABASE=os.path.join(app.instance_path, 'ispeech.sqlite'),
     )

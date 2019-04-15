@@ -54,7 +54,7 @@
   >  $env:FLASK_ENV = "development"
   > 
   on Windows  
-  > set FLASK_APP=ispeech 
+  > set FLASK_APP="ispeech.py"  
   > set FLASK_ENV=development 
   > flask run 
 
