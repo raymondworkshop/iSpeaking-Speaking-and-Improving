@@ -27,13 +27,14 @@ from collections import OrderedDict
 import sys
 #from flask_sslify import SSLify
 #from OpenSSL import SSL
-import ssl
+#import ssl
 
+from . import socketio
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
 # the best option based on installed packages.
-async_mode = None
+#async_mode = None
 
 from ispeech.db import get_db
 
@@ -84,7 +85,6 @@ def show_entry():
 
     return render_template()
 """
-
 
 @bp.route('/post', methods = ['GET', 'POST'])
 def post():
@@ -180,6 +180,31 @@ def upload_file():
         f = request.files['file']
         f.save(secure_filename(f.filename))
         return 'file uploaded successfully'
+
+@socketio.on('start-recording', namespace='/audio')
+def start_recording():
+    """Start recording audio from the client."""
+    id = uuid.uuid4().hex  # server-side filename
+    session['wavename'] = id + '.wav'
+    wf = wave.open(current_app.config['FILEDIR'] + session['wavename'], 'wb')
+    wf.setnchannels(options.get('numChannels', 1))
+    wf.setsampwidth(options.get('bps', 16) // 8)
+    wf.setframerate(options.get('fps', 44100))
+    session['wavefile'] = wf
+
+@socketio.on('write-audio', namespace='/audio')
+def write_audio(data):
+    """Write a chunk of audio from the client."""
+    session['wavefile'].writeframes(data)
+
+@socketio.on('end-recording', namespace='/audio')
+def end_recording():
+    """Stop recording audio from the client."""
+    emit('add-wavefile', url_for('static',
+                                 filename='_files/' + session['wavename']))
+    session['wavefile'].close()
+    del session['wavefile']
+    del session['wavename']
 
 #main
 if __name__ == '__main__':

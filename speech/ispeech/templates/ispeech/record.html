@@ -36,10 +36,8 @@
 
 <script>
       //socket 
-      var socket = io.connect('http://' + document.domain + ':' + location.port);
-      socket.on('connect', function() {
-        __log('Websocket connected!');
-      });
+      var socketio = io.connect(location.origin + '/audio', {transports: ['websocket']});
+
     // message handler for the 'join_room' channel
       socket.on('join_room', function(msg) {
       __log(msg);
@@ -69,6 +67,9 @@
           button.disabled = true;
           button.nextElementSibling.disabled = false;
           __log('Recording...');
+
+          //
+          socketio.emit('start-recording', {numChannels: 1, bps: 16, fps: parseInt(audioContext.sampleRate)});
         }
       
         function stopRecording(button) {
@@ -79,6 +80,8 @@
           
           // create WAV download link using audio data blob
           createDownloadLink();
+
+          socketio.emit('end-recording');
           
           recorder.clear();
         }
@@ -103,24 +106,9 @@
             li.appendChild(hf);
 
             //upload link
-	        var upload = document.createElement('a');
-	        upload.href="http://127.0.0.1:5000/upload";
-	        upload.innerHTML = "Upload";
-	        upload.addEventListener("click", function(event){
-		       var xhr=new XMLHttpRequest();
-		       xhr.onload=function(e) {
-		      if(this.readyState === 4) {
-		          console.log("Server returned: ",e.target.responseText);
-		      }
-		   };
-		    var fd=new FormData();
-		    fd.append("audio_data",blob, filename);
-		    xhr.open("POST", '/upload', true);
-		    xhr.send(fd);
-        })
         
-	       li.appendChild(document.createTextNode (" "))//add a space in between
-	       li.appendChild(upload)//add the upload link to li
+	          li.appendChild(document.createTextNode (" "))//add a space in between
+	          li.appendChild(upload)//add the upload link to li
 
             //
             recordingslist.appendChild(li);
@@ -148,6 +136,8 @@
         </script>
       
         <script src="../../static/recorder.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+
 
 <!--
 <script src="record.js"></script>
