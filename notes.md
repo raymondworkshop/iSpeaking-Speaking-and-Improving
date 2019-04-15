@@ -1,5 +1,48 @@
-
 ### notes 
+
+#### 2019-04-12 
+* coding the syn function
+
+#### 2019-04-11 
+* fix the file upload issue 
+  - 
+  
+* [check Heroku App with Flask](http://clouddatafacts.com/heroku/heroku-flask/heroku_flask_getting_started.html)
+
+
+#### 2019-04-09 
+* 'Acoustic Phonetics' part on slp2 
+* TODO 
+  - fix the interface issues soon 
+
+#### 2019-04-04 
+* check the problems to deploy on heroku
+  - [weblink](https://ispeech.herokuapp.com/ | https://git.heroku.com/ispeech.git)
+
+#### 2019-04-03 
+* try to use Heroku TO deploy the HTTPS 
+
+#### 2019-04-02 
+* check the code HTTPS connection 
+* read a doc on phonetics from a computational perspective referenced on slp2 
+
+
+#### 2019-03-27 
+* todo
+  - the principle of voice 
+
+#### 2019-03-26
+
+* present a simplified web demo 
+
+* TODO 
+  - HTTPS connection
+    + [HTTPS and trust chain in Flask](https://carolinafernandez.github.io/development/2017/09/13/HTTPS-and-trust-chain-in-Flask)
+  - socket issue 
+    + flask socketio bp 
+  - the realted resource  
+    + check the realted principle and module 
+
 
 #### 2019-03-24 
 * progresss
@@ -7,9 +50,9 @@
   
 
 * TODO
-  - use websocket for connection
-  - deploying a web app using Heroku and Flask
-  - deploying a mobile app
+  - use websocket for connection 
+  - deploying a web app using Heroku and Flask 
+  - <del>deploying a mobile app </del>
 
 * reference
   - [Deploying Deep Learning Models On Web And Mobile](https://reshamas.github.io/deploying-deep-learning-models-on-web-and-mobile/)
@@ -50,8 +93,8 @@
 
 * Start
   on powershell
-  >  $env:FLASK_APP="ispeech.py" 
-  >  $env:FLASK_ENV = "development"
+  >  $env:FLASK_APP="ispeech.py"  
+  >  $env:FLASK_ENV = "development" 
   > 
   on Windows  
   > set FLASK_APP="ispeech.py"  
@@ -63,7 +106,8 @@
   > pip3 install -r requirements.txt
 
 #### 2019-03-04 
-* TODO - a web-based system to improve English (word) pronouncation, and give a marker 
+* TODO 
+  - a web-based system to improve English (word) pronouncation, and give a marker 
   - flask 
 
 #### Customized speech recognition - A Technical Report
@@ -72,15 +116,6 @@
 
 #### 2019-01-24 
 * In CMUSphinx phoneme recognition 
-
-#### 2019-01-14 
-* how to be different from the current applications 
-
-* Think more
-    - do u wanna do this really?
-    - how to deal with the people here?
-
-* 不卑不亢才是正道
 
 #### 2019-01-07 
 * use keras 
@@ -98,7 +133,8 @@
 
 #### radio
 
-#### reference
+#### reference 
+* [2019 KDD Workshop on Deep Learning for Education (DL4Ed)](http://ml4ed.cc/2019-kdd-workshop/)
 * [宝宝玩英语](http://www.babyfs.cn/about.html)
 * [CS224S / LINGUIST285 - Spoken Language Processing](http://web.stanford.edu/class/cs224s/syllabus.html)
 * [2017 KDD workshop - Advancing Education with Data](http://ml4ed.cc/2017-kdd-workshop/)

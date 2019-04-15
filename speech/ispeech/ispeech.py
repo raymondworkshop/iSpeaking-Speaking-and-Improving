@@ -6,6 +6,7 @@ A view function
 
 @wenlong 
 """
+import os
 
 import datetime
 
@@ -18,11 +19,16 @@ from werkzeug import secure_filename
 from werkzeug.exceptions import abort
 from flask_socketio import SocketIO, emit
 #from flask_socketio import SocketIO, emit, disconnect
+from werkzeug.serving import run_simple
 
 #import scipy.io.wavfile
 import numpy as np
 from collections import OrderedDict
 import sys
+#from flask_sslify import SSLify
+#from OpenSSL import SSL
+import ssl
+
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
@@ -61,14 +67,14 @@ def record():
     txt = ""
     _ipa = "" 
 
-    """
-    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
     demo = sr.AudioFile( dir + 'english81.wav')
+    #demo = dir + 'english81.wav'
 
     txt = get_post(demo)
+    #print(txt)
     _ipa = ipa.convert(txt)
-    """
-
+    
     #ws.send
     return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
 
@@ -84,6 +90,7 @@ def show_entry():
 def post():
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     demo = sr.AudioFile( dir + 'english81.wav')
+    #demo = dir + 'english81.wav'
 
     txt = get_post(demo)
 
@@ -110,13 +117,13 @@ def get_post(demo, check_author=True):
         #audio = r.record(source)
     """
 
-    
+    with demo as source:
+        #r.adjust_for_ambient_noise(source, duration=2)
+        print("demo:", demo)
+        audio = r.record(demo)
     
     #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     #demo = sr.AudioFile( dir + 'english81.wav')
-
-    with demo as source:
-        audio = r.record(demo)
 
     #txt = get_post(demo)
 
@@ -124,7 +131,7 @@ def get_post(demo, check_author=True):
     try:
         #txt = r.recognize_google(speech, language = 'hi-IN')
         #txt = r.recognize_google(speech)
-        txt = r.recognize_sphinx(speech)
+        txt = r.recognize_sphinx(audio)
         print('TEXT: ' + txt)
     except sr.UnknownValueError:
         print("Could not recognize the audio")
@@ -135,20 +142,34 @@ def get_post(demo, check_author=True):
     return txt
 
 #
-@bp.route('/messages', methods=['POST'])
-def upload(request):
+@bp.route('/upload', methods=['GET', 'POST'])
+def upload():
+    txt = ""
+    _ipa = ""
+
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
-    file = dir + 'recording.wav'
+    #file = dir + 'recording.wav'
+    file = dir + 'english81.wav'
 
-    f = open(file, "wb")
-    # the actual file is in request.body
-    f.write(request.data)
-    f.close()
+    exists = os.path.isfile(file)
 
-    demo = sr.AudioFile(file)
+    if exists:
+        """
+        f = open(file, "wb")
+        # the actual file is in request.body
+        f.write(request.data)
+        f.close()
 
-    txt = get_post(demo)
-    _ipa = ipa.convert(txt)
+        demo = sr.AudioFile(file)
+        """
+        demo = file
+
+        txt = get_post(demo)
+        _ipa = ipa.convert(txt)
+    
+
+    else:
+        print("No file")
 
     return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
 
@@ -162,9 +183,23 @@ def upload_file():
 
 #main
 if __name__ == '__main__':
-    bp.run(debug=True)
+    """
+    context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+    context.verify_mode = ssl.CERT_REQUIRED
+    context.load_verify_locations("ca.crt")
+    context.load_cert_chain("server.crt", "server.key")
+    serving.run_simple("0.0.0.0", 5000, bp, ssl_context="adhoc",debug=True)
+    """
+    #dir = 'C:/Users/raymondzhao/myproject/dev.speech/'
+    #ssl_context=(dir + 'ssl.cert', dir + 'ssl.key')
+    #context.load_verify_locations("ca.crt")
+    #bp.run(host='127.0.0.1', port='80', debug=True, threaded=True,ssl_context=context)
 
+    #run_simple('localhost', 4000, bp, debug=True, threaded=True, ssl_context=ssl_context)
+    #bp.run(host='127.0.0.1', port=80, debug=True, threaded=True,ssl_context=context)
     #file
+
+    bp.run(port='80', debug=True, threaded=True)
     
     #get_post(demo)
     print('Done')
