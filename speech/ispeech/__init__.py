@@ -9,9 +9,9 @@ application factory
 import os
 
 from flask import Flask
-from flask_socketio import SocketIO
+#from flask_socketio import SocketIO
 
-socketio = SocketIO()
+#socketio = SocketIO()
 #app = Flask(__name__)
 
 #import flask.views
@@ -63,6 +63,6 @@ def create_app(test_config=None):
     app.add_url_rule('/', endpoint='index')
     
     #sslify = SSLify(app)
-    socketio.init_app(app, binary=True)
+    #socketio.init_app(app, binary=True)
 
     return app

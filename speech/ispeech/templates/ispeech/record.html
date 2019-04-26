@@ -24,8 +24,9 @@
 <div id="controls">
     <button onclick="startRecording(this);">record</button>
     <button onclick="stopRecording(this);" disabled>stop</button>
+    <!--
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
-
+    -->
 </div>
 
 <h2>Recordings</h2>
@@ -35,10 +36,26 @@
    <pre id="log"></pre>
 
 <script>
-      //socket 
-      var socketio = io.connect(location.origin + '/audio', {transports: ['websocket']});
+    var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
 
-    // message handler for the 'join_room' channel
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 5;
+    recognition.start();
+
+    recognition.onresult = function(event) {
+       console.log('You said: ', event.results[0][0].transcript);
+    };
+
+</script>
+
+<!--
+<script>
+      //socket 
+      //var socketio = io.connect(location.origin + '/audio', {transports: ['websocket']});
+      //var socketio = io.connect('http://10.107.129.187:5000')
+
+      // message handler for the 'join_room' channel
     
       //
         function __log(e, data) {
@@ -67,7 +84,7 @@
           __log('Recording...');
 
           //
-          socketio.emit('start-recording', {numChannels: 1, bps: 16, fps: parseInt(audioContext.sampleRate)});
+          //socketio.emit('start-recording', {numChannels: 1, bps: 16, fps: parseInt(audioContext.sampleRate)});
         }
       
         function stopRecording(button) {
@@ -77,8 +94,9 @@
           __log('Stopped recording.');
           
           // create WAV download link using audio data blob
-          //createDownloadLink();
+          createDownloadLink();
 
+        /*
           socketio.on('add-wavefile', function(url) {
         // add new recording to page
           audio = document.createElement('p');
@@ -87,9 +105,11 @@
           });
 
           socketio.emit('end-recording');
-          
+        */
+
           recorder.clear();
         }
+
         //
         function shareAudio(blob){
           // send blob over to python using web socket
@@ -112,8 +132,8 @@
 
             //upload link
         
-	          //li.appendChild(document.createTextNode (" "))//add a space in between
-	          //li.appendChild(upload)//add the upload link to li
+	        li.appendChild(document.createTextNode (" "))//add a space in between
+	        li.appendChild(upload)//add the upload link to li
 
             //
             recordingslist.appendChild(li);
@@ -141,6 +161,7 @@
         </script>
       
         <script src="../../static/recorder.js"></script>
+-->
         
 <!--
 <script src="record.js"></script>

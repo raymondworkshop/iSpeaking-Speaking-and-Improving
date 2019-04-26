@@ -17,7 +17,7 @@ from flask import Blueprint, flash, g, render_template, request, redirect, sessi
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug import secure_filename
 from werkzeug.exceptions import abort
-from flask_socketio import emit
+#from flask_socketio import emit
 #from flask_socketio import SocketIO, emit, disconnect
 from werkzeug.serving import run_simple
 
@@ -29,7 +29,7 @@ from collections import OrderedDict
 #from OpenSSL import SSL
 #import ssl
 
-from . import socketio
+#from . import socketio
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
@@ -183,10 +183,11 @@ def upload_file():
         f.save(secure_filename(f.filename))
         return 'file uploaded successfully'
 
+"""
 #
 @socketio.on('start-recording', namespace='/audio')
 def start_recording():
-    """Start recording audio from the client."""
+    #Start recording audio from the client.
     id = uuid.uuid4().hex  # server-side filename
     session['wavename'] = id + '.wav'
     wf = wave.open(current_app.config['FILEDIR'] + session['wavename'], 'wb')
@@ -197,17 +198,19 @@ def start_recording():
 
 @socketio.on('write-audio', namespace='/audio')
 def write_audio(data):
-    """Write a chunk of audio from the client."""
+    #Write a chunk of audio from the client.
     session['wavefile'].writeframes(data)
 
 @socketio.on('end-recording', namespace='/audio')
 def end_recording():
-    """Stop recording audio from the client."""
+    #Stop recording audio from the client.
     emit('add-wavefile', url_for('static',
                                  filename='_files/' + session['wavename']))
     session['wavefile'].close()
     del session['wavefile']
     del session['wavename']
+
+"""
 
 #main
 if __name__ == '__main__':
@@ -227,7 +230,7 @@ if __name__ == '__main__':
     #bp.run(host='127.0.0.1', port=80, debug=True, threaded=True,ssl_context=context)
     #file
 
-    bp.run(port='80', debug=True, threaded=True)
+    bp.run( port='80', debug=True, threaded=True)
     
     #get_post(demo)
     print('Done')

@@ -1,7 +1,14 @@
 ### notes 
 
+#### 2019-04-24 
+* doc on deep learning    
+
+#### 2019-04-16 
+* exercise on python programming 
+  - generator
+
 #### 2019-04-15 
-* --  
+* - survey 
 
 #### 2019-04-12 
 * coding the syn function
