@@ -2,11 +2,20 @@
 
 #### 2019-05-06 
  * ideas 
-   - Automatic scoring of non-native speech in tests of spoken English 
-   - A evaluating model of english pronunciation for Chinese students 
-   - Spoken Language Understanding - English - NLU  
-   - speech-to-speech translation ?
-   - 
+   - computer-aided language learning (CALL) <- ASR 
+     + on vocabulary, grammar, semantics checking 
+
+     + -> Spoken Language Understanding - English - NLU 
+
+     + speech-to-speech translation ?
+
+   - computer-aided pronunciation training (CAPT) 
+     + pronunciation assessment 
+
+     + -> Automatic scoring 
+
+     + Automatic scoring of non-native speech in tests of spoken English 
+     + A evaluating model of english pronunciation for Chinese students 
 
 
 #### 2019-04-24 
