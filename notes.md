@@ -1,5 +1,14 @@
 ### notes 
 
+#### 2019-05-06 
+ * ideas 
+   - Automatic scoring of non-native speech in tests of spoken English 
+   - A evaluating model of english pronunciation for Chinese students 
+   - Spoken Language Understanding - English - NLU  
+   - speech-to-speech translation ?
+   - 
+
+
 #### 2019-04-24 
 * doc on deep learning    
 
