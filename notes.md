@@ -9,7 +9,10 @@
      + maps English words to their pronunciations as per the International Phonetic Alphabet. 
      + [Dictionary](https://github.com/JoseLlarena/britfoner)
 
-   - generative adversarial networks
+   - generative adversarial networks 
+   - 
+   - product 
+     + [ELSA](https://www.forbes.com/sites/chynes/2016/08/30/the-app-using-artificial-intelligence-to-improve-english-speaking-skills/#447723c31c82)
 
   * reference 
    - [Automatic Pronunciation Intelligibility Assessment](https://medium.com/viithiisys/automatic-pronunciation-intelligibility-assessment-de5a6b8c990c)
