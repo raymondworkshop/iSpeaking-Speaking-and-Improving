@@ -1,8 +1,9 @@
 ### notes 
 
 #### 2019-05-08 
+  * fake news ?
   * ideas in ASR + education
-   - customer pronunciation dictionary using deeplearning 
+   - customer **pronunciation dictionary** using deeplearning 
      + grapheme-to-phoneme conversion 
 
    - a British/American English pronunciation dictionary 
@@ -12,9 +13,7 @@
    - generative adversarial networks 
    - 
    - product 
-     + [ELSA](https://www.forbes.com/sites/chynes/2016/08/30/the-app-using-artificial-intelligence-to-improve-english-speaking-skills/#447723c31c82)
-
-  * fake news ?
+     + [ELSA](https://www.forbes.com/sites/chynes/2016/08/30/the-app-using-artificial-intelligence-to-improve-english-speaking-skills/#447723c31c82) 
 
   * reference 
    - [Automatic Pronunciation Intelligibility Assessment](https://medium.com/viithiisys/automatic-pronunciation-intelligibility-assessment-de5a6b8c990c)
