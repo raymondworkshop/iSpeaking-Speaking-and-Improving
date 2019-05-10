@@ -1,5 +1,14 @@
 ### notes 
 
+#### 2019-05-10 
+  * mini-proposal 
+    - pronunciation 
+      + assessment
+      + checking and feedback 
+
+    - fake news ? 
+
+
 #### 2019-05-08 
   * fake news ?
   * ideas in ASR + education
