@@ -8,6 +8,8 @@
 
     - fake news ? 
 
+  * proposal <- the defined problem 
+
 
 #### 2019-05-08 
   * fake news ?
