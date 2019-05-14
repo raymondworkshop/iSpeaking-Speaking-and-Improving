@@ -9,7 +9,7 @@
     - fake news 
       + using Sentiment Analysis  
 
-  * check Heroku development 
+  * dev <- Heroku  
 
 
 #### 2019-05-10 
