@@ -3,12 +3,13 @@
 #### 2019-05-10 
   * mini-proposal 
     - pronunciation 
-      + assessment
       + checking and feedback 
+      + assessment
 
-    - fake news ? 
+    - fake news  
 
-  * proposal <- the defined problem 
+  * proposal <- how to pursue it 
+    - 
 
 
 #### 2019-05-08 
