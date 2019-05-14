@@ -19,10 +19,7 @@
       + assessment
 
     - fake news  
-    Detecting Fake Reviews through Sentiment Analysis Using Machine Learning Techniques
-
-  * proposal <- how to pursue it 
-    - 
+    Detecting Fake Reviews through Sentiment Analysis Using Machine Learning Techniques 
 
 
 #### 2019-05-08 
