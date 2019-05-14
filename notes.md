@@ -23,26 +23,26 @@
 
 
 #### 2019-05-08 
-  * fake news ?
+  * fake news 
   * ideas in ASR + education
-   - customer **pronunciation dictionary** using deeplearning 
-     + grapheme-to-phoneme conversion 
+    - customer **pronunciation dictionary** using deeplearning 
+      + grapheme-to-phoneme conversion 
 
-   - a British/American English pronunciation dictionary 
-     + maps English words to their pronunciations as per the International Phonetic Alphabet. 
-     + [Dictionary](https://github.com/JoseLlarena/britfoner)
+    - a British/American English pronunciation dictionary 
+      + maps English words to their pronunciations as per the International Phonetic Alphabet. 
+      + [Dictionary](https://github.com/JoseLlarena/britfoner)
 
-   - generative adversarial networks 
-   - 
-   - product 
-     + [ELSA](https://www.forbes.com/sites/chynes/2016/08/30/the-app-using-artificial-intelligence-to-improve-english-speaking-skills/#447723c31c82) 
+    - generative adversarial networks 
+   
+    - product 
+      + [ELSA](https://www.forbes.com/sites/chynes/2016/08/30/the-app-using-artificial-intelligence-to-improve-english-speaking-skills/#447723c31c82) 
 
   * reference 
-   - [Automatic Pronunciation Intelligibility Assessment](https://medium.com/viithiisys/automatic-pronunciation-intelligibility-assessment-de5a6b8c990c)
+    - [Automatic Pronunciation Intelligibility Assessment](https://medium.com/viithiisys/automatic-pronunciation-intelligibility-assessment-de5a6b8c990c)
 
 
 #### 2019-05-06 
- * ideas in ASR + education 
+  * ideas in ASR + education 
    - computer-aided language learning (CALL) <- ASR 
      + on vocabulary, grammar, semantics checking 
      + based on a comparison with models trained on data from native speakers as well as the lab’s state-of-the art text-to-speech synthesis technology. 
