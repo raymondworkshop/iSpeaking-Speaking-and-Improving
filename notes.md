@@ -1,5 +1,17 @@
 ### notes 
 
+#### 2019-05-14 
+  * proposal  <- how to pursue it 
+    - English (word) Pronunciation (coach) 
+      + checking and feedback 
+      + <del>assessment </del>
+
+    - fake news 
+      + using Sentiment Analysis  
+
+  * check Heroku development 
+
+
 #### 2019-05-10 
   * mini-proposal 
     - pronunciation 
@@ -7,6 +19,7 @@
       + assessment
 
     - fake news  
+    Detecting Fake Reviews through Sentiment Analysis Using Machine Learning Techniques
 
   * proposal <- how to pursue it 
     - 
@@ -195,6 +208,7 @@
 #### radio
 
 #### reference 
+* [ELSA](https://elsaspeak.com/home)
 * [2019 KDD Workshop on Deep Learning for Education (DL4Ed)](http://ml4ed.cc/2019-kdd-workshop/)
 * [宝宝玩英语](http://www.babyfs.cn/about.html)
 * [CS224S / LINGUIST285 - Spoken Language Processing](http://web.stanford.edu/class/cs224s/syllabus.html)
