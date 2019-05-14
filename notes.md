@@ -4,7 +4,7 @@
   * proposal  <- how to pursue it 
     - English (word) Pronunciation (coach) 
       + checking and feedback 
-      + <del>assessment </del>
+      + assessment 
 
     - fake news 
       + using Sentiment Analysis  
