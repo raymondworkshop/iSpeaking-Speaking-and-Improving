@@ -6,9 +6,10 @@
 
   * mispronunciation detection  <- hard 
     - phoneme-based recognition and then identify pronunciation errors in the learners’ speech 
-   =>  pronunciation errors and recognition errors
+    =>  pronunciation errors and recognition errors
 
-    - the acoustic models and an extended pronunciation dictionary with possible erroneous pronunciation variations are used to recognize the most likely phone sequences
+    - the acoustic models and an extended pronunciation dictionary with possible erroneous pronunciation variations are used to recognize the most likely phone sequences 
+    =>  reduce recognition errors 
 
   * reference 
     - [Computer Aided Pronounciation Training in CUHK](http://www1.se.cuhk.edu.hk/~hccl/languagelearning/index_publications.htm)
