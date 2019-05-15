@@ -1,13 +1,26 @@
 ### notes 
 
-#### 2019-05-14 
-  * proposal  <- how to pursue it 
-    - English (word) Pronunciation (coach) 
-      + checking and feedback 
-      + assessment 
+#### 2019-05-15 
+  * fake news 
+   - using Sentiment Analysis in ML
 
-    - fake news 
-      + using Sentiment Analysis  
+  * mispronunciation detection  <- hard 
+   - phoneme-based recognition and then identify pronunciation errors in the learners’ speech 
+   =>  pronunciation errors and recognition errors
+
+   - the acoustic models and an extended pronunciation dictionary with possible erroneous pronunciation variations are used to recognize the most likely phone sequences
+    
+
+
+#### 2019-05-14 
+  * proposal - how to pursue it 
+    - English (word) Pronunciation (coach) 
+      + checking and feedback - 
+        - recognizing word and compared with standarded one 
+
+      + assessment - 
+
+    - fake news <- using Sentiment Analysis  
 
   * dev <- Heroku  
 
@@ -24,6 +37,8 @@
 
 #### 2019-05-08 
   * fake news 
+  * GAN - generative adversarial networks 
+
   * ideas in ASR + education
     - customer **pronunciation dictionary** using deeplearning 
       + grapheme-to-phoneme conversion 
@@ -31,8 +46,6 @@
     - a British/American English pronunciation dictionary 
       + maps English words to their pronunciations as per the International Phonetic Alphabet. 
       + [Dictionary](https://github.com/JoseLlarena/britfoner)
-
-    - generative adversarial networks 
    
     - product 
       + [ELSA](https://www.forbes.com/sites/chynes/2016/08/30/the-app-using-artificial-intelligence-to-improve-english-speaking-skills/#447723c31c82) 
@@ -51,11 +64,10 @@
 
      + -> Spoken Language Understanding - English - NLU 
 
-
    - computer-aided pronunciation training (CAPT) 
      + pronunciation assessment 
 
-     + -> Automatic scoring 
+     + Automatic scoring 
 
      + Automatic scoring of non-native speech in tests of spoken English 
      + A evaluating model of english pronunciation for Chinese students 
