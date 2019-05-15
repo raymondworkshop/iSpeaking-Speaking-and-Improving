@@ -9,6 +9,9 @@
    =>  pronunciation errors and recognition errors
 
    - the acoustic models and an extended pronunciation dictionary with possible erroneous pronunciation variations are used to recognize the most likely phone sequences
+
+   * reference 
+    - [Computer Aided Pronounciation Training in CUHK](http://www1.se.cuhk.edu.hk/~hccl/languagelearning/index_publications.htm)
     
 
 
