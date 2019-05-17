@@ -1,9 +1,14 @@
 ### notes 
+  * project on mispronunciation detection  
+  * join the project on 靈實 
+  * iCon project 
+
+#### 2019-05-16 
+  * mispronunciation detection 
+    - 
+  * another project -> NLP ?
 
 #### 2019-05-15 
-  * fake news 
-    - using Sentiment Analysis in ML
-
   * mispronunciation detection  <- hard 
     - phoneme-based recognition and then identify pronunciation errors in the learners’ speech 
     =>  pronunciation errors and recognition errors
@@ -13,7 +18,9 @@
 
   * reference 
     - [Computer Aided Pronounciation Training in CUHK](http://www1.se.cuhk.edu.hk/~hccl/languagelearning/index_publications.htm)
-    
+
+  * fake news 
+    - using Sentiment Analysis 
 
 
 #### 2019-05-14 
