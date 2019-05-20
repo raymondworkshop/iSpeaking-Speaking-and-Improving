@@ -17,7 +17,7 @@
     -> A new idea/min-project about GAN/NLU fully by myself  ?  
 
   * join the project on 靈實 
-    -> not in engineering view, but in business view if possible ? 
+    -> not in engineering and business view if possible ? 
 
   * fake news 
 
