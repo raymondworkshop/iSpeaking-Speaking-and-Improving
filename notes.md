@@ -5,10 +5,11 @@
     -> give a presentation at Sep conference? 
 
   * support iCon project  
-    -> A new idea about GAN/NLU fully by myself  ?  
+    -> A new idea/min-project about GAN/NLU fully by myself  ?  
 
   * join the project on 靈實 
     -> not in engineering view, but in business view if possible ? 
+    
   * fake news - Prof. Chin?
     -> It could be done if Prof. Chin is in the project 
 
