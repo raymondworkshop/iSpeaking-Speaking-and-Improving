@@ -1,6 +1,15 @@
 ### notes 
 
 #### 2019-05-20 
+  * a web-based system to do a basic recognition and checking 
+
+  * how 
+    - principle 
+    - dataset 
+      + ShefCE dataset ?
+    - module 
+
+#### 2019-05-20 
   * project on Enlgish mispronunciation detection 
     -> give a presentation at Sep conference ? 
 
