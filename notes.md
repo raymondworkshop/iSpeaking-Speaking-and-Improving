@@ -1,7 +1,11 @@
 ### notes 
-  * project on mispronunciation detection  
+
+#### 2019-05-20 
+  * project on mispronunciation detection 
+  * support iCon project  
   * join the project on 靈實 
-  * iCon project 
+  * fake news - Prof. Chin?
+
 
 #### 2019-05-16 
   * mispronunciation detection 
