@@ -14,3 +14,4 @@ _speech/
 
 .vscode/
 gcloud_speech_voice_recorder/
+socketio-examples/

@@ -1,13 +1,20 @@
 ### notes 
 
+#### 2019-05-23 
+  * 
+
+#### 2019-05-22 
+  * doc on python
+
 #### 2019-05-20 
-  * a web-based system to do a basic recognition and checking 
+  * ispeaking: a web-based Pronunciation System for Cantonese Speakers English L2 Learners
+   - do a basic recognition and checking 
 
   * how 
     - principle 
     - dataset 
       + ShefCE dataset ?
-    - module 
+    - module  
 
 #### 2019-05-20 
   * project on Enlgish mispronunciation detection 
