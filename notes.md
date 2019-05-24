@@ -1,7 +1,12 @@
 ### notes 
 
 #### 2019-05-23 
-  * 
+  * The **principle**  
+  * a basic
+
+  * gap 
+    - phonetic erros -> focus
+    - prosodic  -> key of intelligibility 
 
 #### 2019-05-22 
   * doc on python
