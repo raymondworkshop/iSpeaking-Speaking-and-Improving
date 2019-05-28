@@ -1,8 +1,11 @@
 ### notes 
 
+#### 2019-05-28 
+  * about python
+
 #### 2019-05-23 
   * The **principle**  
-  * a basic
+  * a basic 
 
   * gap 
     - phonetic erros -> focus
