@@ -1,5 +1,8 @@
 ### notes 
 
+#### 2019-05-29 
+  * the doc 
+
 #### 2019-05-28 
   * about python
 
