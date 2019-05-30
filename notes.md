@@ -1,5 +1,21 @@
 ### notes 
 
+#### 2019-05-30 
+  * proposal 
+    - task -> phonetic erros
+    - approach 
+      + corpus of read English speech 
+      + acoustic models 
+      + language models 
+      + [openSLR](http://www.openslr.org/12/) 
+    
+    - metrics 
+
+    - baseline firstly  
+    - demo 
+
+  * gap 
+
 #### 2019-05-29 
   * the doc 
 
