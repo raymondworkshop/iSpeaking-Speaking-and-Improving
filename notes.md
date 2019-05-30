@@ -10,8 +10,8 @@
     
     - metrics 
 
-    - baseline firstly  
-    - demo 
+    - baseline  
+    - demo  
 
   * gap 
 
