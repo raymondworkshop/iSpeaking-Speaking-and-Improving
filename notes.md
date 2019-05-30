@@ -1,8 +1,7 @@
 ### notes 
 
 #### 2019-05-30 
-  * proposal 
-    - task -> English phonetic erros firstly 
+  * task -> English phonetic erros firstly 
     - approach 
       + Free Speech Corpora ?  
       + acoustic models 
