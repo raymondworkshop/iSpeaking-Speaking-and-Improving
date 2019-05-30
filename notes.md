@@ -2,9 +2,9 @@
 
 #### 2019-05-30 
   * proposal 
-    - task -> phonetic erros
+    - task -> English phonetic erros firstly 
     - approach 
-      + corpus of read English speech 
+      + Free Speech Corpora ?  
       + acoustic models 
       + language models 
       + [openSLR](http://www.openslr.org/12/) 
