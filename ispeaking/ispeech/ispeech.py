@@ -47,6 +47,10 @@ r = sr.Recognizer()
 
 import eng_to_ipa as ipa
 
+UPLOAD_FOLDER = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
+ALLOWED_EXTENSIONS = set(['wav'])
+#
+#app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @bp.route('/')
 def index():
@@ -68,12 +72,16 @@ def record():
     txt = ""
     _ipa = "" 
 
+    """
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
     demo = sr.AudioFile( dir + 'english81.wav')
     #demo = dir + 'english81.wav'
 
     txt = get_post(demo)
     #print(txt)
+    _ipa = ipa.convert(txt)
+    """
+    txt = "Hello, World"
     _ipa = ipa.convert(txt)
     
     #ws.send
@@ -98,8 +106,12 @@ def post():
     #return txt
     return render_template('base.html', posts=txt)
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def get_post(demo, check_author=True):
+
+def get_post(_demo, check_author=True):
     #
     # source = sr.microphone(sample_rate = 48000, chunk_size=8192)
     txt = ""
@@ -116,11 +128,22 @@ def get_post(demo, check_author=True):
         
         #audio = r.record(source)
     """
+    #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
+    #demo = sr.AudioFile( dir + 'english81.wav')
+    demo = sr.AudioFile(_demo)
+
+    print("demo:", demo)
+   
+    # Convert Audio to Audio Source Format
+    #harvard = sr.AudioData(demo, 16000, 2)
     
     with demo as source:
-        #r.adjust_for_ambient_noise(source, duration=2)
-        print("demo:", demo)
-        audio = r.record(demo)
+        #r.adjust_for_ambient_noise(source)
+        #print("the demo: ", source)
+        audio = r.record(source)
+    
+    #audio = r.record(demo)
     
     #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     #demo = sr.AudioFile( dir + 'english81.wav')
@@ -170,7 +193,8 @@ def upload():
     txt = ""
     _ipa = ""
 
-    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/' 
     #file = dir + 'recording.wav'
     file = dir + 'english81.wav'
 
@@ -200,9 +224,21 @@ def upload():
 @bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        f = request.files['file']
-        f.save(secure_filename(f.filename))
-        return 'file uploaded successfully'
+        file = request.files['file']
+
+        if file and allowed_file(file.filename):
+            filename = os.path.join(UPLOAD_FOLDER, secure_filename(file.filename))
+            file.save(filename)
+
+            print('file uploaded successfully')
+
+            txt = get_post(filename)
+            print(txt)
+            _ipa = ipa.convert(txt)
+            print(_ipa)
+    
+        #ws.send
+        return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
 
 #main
 if __name__ == '__main__':
