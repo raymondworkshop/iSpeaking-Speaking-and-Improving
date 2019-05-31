@@ -1,5 +1,9 @@
 ### notes 
 
+#### 2019-05-31
+  * fix web uploading function 
+    - change real-time function into uploading file -> too slow 
+
 #### 2019-05-30 
   * task -> English phonetic erros firstly 
     - approach 
