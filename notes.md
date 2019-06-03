@@ -1,5 +1,41 @@
 ### notes 
 
+#### 2019-06-03 
+  * build a web-based  
+    - React + Flask  
+    - data-driven approaches 
+    - demo 
+      + Input: speak a given utterance 
+      + output: phone-level transcription 
+
+  * phone-level transcriptions
+
+  * Phoneme Recognition <- high errors now 
+    - sound to phoneme  
+    - phonemes itself are pretty loosely defined 
+      + 17.7% on the TIMIT
+phoneme recognition benchmark by Alex Graves - 2013 
+    - the phone recognition error rate is typically much higher than word error rate even for native speakers, which makes it difficult to distinguish between pronunciation errors and recognition errors. 
+
+
+  * ASR -> p(w|o)
+    - acoustic module 
+      + all of basic sounds of language given their context 
+      + HMM - statistical representations for each phoneme in a language 
+
+      + the likelihood P(O|W)
+
+    - pronunciation dictionary - lexicon 
+      + how all the words get pronounced 
+      + bulit by stringing together acoustic models 
+
+    - language model - match a word or phrase 
+      + p(w)
+      + model of word sequences 
+
+  * reference
+    - [Emojist](http://emojist.com/)
+
 #### 2019-05-31
   * fix web uploading function 
     - change real-time function into uploading file -> too slow 
@@ -49,7 +85,6 @@
 
 #### 2019-05-20 
   * project on Enlgish mispronunciation detection 
-    -> give a presentation at Sep conference ? 
 
   * support iCon project  
     -> A new idea/min-project about GAN/NLU fully by myself  ?  

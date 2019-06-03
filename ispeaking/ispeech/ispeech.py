@@ -15,7 +15,7 @@ import functools
 from flask import Blueprint, flash, g, render_template, request, redirect, session, url_for
 
 from werkzeug.security import check_password_hash, generate_password_hash
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 from werkzeug.exceptions import abort
 #from flask_socketio import SocketIO, emit
 #from flask_socketio import SocketIO, emit, disconnect
