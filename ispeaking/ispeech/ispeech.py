@@ -47,6 +47,11 @@ r = sr.Recognizer()
 
 import eng_to_ipa as ipa
 
+from scipy.io import wavfile
+import math
+import numpy as np
+
+
 UPLOAD_FOLDER = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
 ALLOWED_EXTENSIONS = set(['wav'])
 #
@@ -131,10 +136,19 @@ def get_post(_demo, check_author=True):
     #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
     #demo = sr.AudioFile( dir + 'english81.wav')
+    print("_demo:", _demo)
+    """
+    rate, data = wavfile.read(_demo)
+    #data2 = []
+    # Convert `data` to 32 bit integers:
+    data2 = (np.iinfo(np.int32).max * (data/np.abs(data).max())).astype(np.int32)
+
+    wavfile.write(_demo,rate,data2)
+    """
+
     demo = sr.AudioFile(_demo)
 
-    print("demo:", demo)
-   
+    
     # Convert Audio to Audio Source Format
     #harvard = sr.AudioData(demo, 16000, 2)
     
@@ -212,7 +226,7 @@ def upload():
         demo = file
 
         txt = get_post(demo)
-        _ipa = ipa.convert(txt)
+        #_ipa = ipa.convert(txt)
     
 
     else:

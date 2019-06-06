@@ -1,14 +1,21 @@
 ### notes 
 
+#### 2019-06-05 
+  * 
+
+#### 2019-06-04 
+  * it is slow/errors to get the result 
+    - the raw audio is too large (64M), and the quality isn't good 
+    - the target is for a given utterance like a sentence 
+    - thus, it's fine 
+
 #### 2019-06-03 
-  * build a web-based  
+  * build a web-based prototype   
     - React + Flask  
     - data-driven approaches 
     - demo 
-      + Input: speak a given utterance 
-      + output: phone-level transcription 
-
-  * phone-level transcriptions
+      + Input: speak a given utterance - sentence
+      + output: phone-level transcriptions 
 
   * Phoneme Recognition <- high errors now 
     - sound to phoneme  
@@ -87,7 +94,7 @@ phoneme recognition benchmark by Alex Graves - 2013
   * project on Enlgish mispronunciation detection 
 
   * support iCon project  
-    -> A new idea/min-project about GAN/NLU fully by myself  ?  
+    -> A new idea/min-project about GAN/NLU by myself  ?  
 
   * join the project on 靈實 
     -> not in engineering and business view if possible ? 
