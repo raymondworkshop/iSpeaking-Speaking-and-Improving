@@ -1,9 +1,8 @@
 ### notes 
 
-#### 2019-06-05 
-  * 
 
-#### 2019-06-04 
+
+#### 2019-06-05 
   * it is slow/effectual to output the result 
     - the raw audio is too large (64M), and the quality isn't good 
     - the target is for a given utterance like a sentence 
