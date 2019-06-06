@@ -4,10 +4,10 @@
   * 
 
 #### 2019-06-04 
-  * it is slow/errors to get the result 
+  * it is slow/effectual to output the result 
     - the raw audio is too large (64M), and the quality isn't good 
     - the target is for a given utterance like a sentence 
-    - thus, it's fine 
+    - thus, it's fine now
 
 #### 2019-06-03 
   * build a web-based prototype   
