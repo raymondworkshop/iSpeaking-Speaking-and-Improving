@@ -3,9 +3,10 @@
 #### 2019-06-10 
   * fix the coding errors 
     - use python3.6 not python3.7 to support tensorflow 
-    
+
   * TODO 
     - load pre-train acoustic module 
+    - check whether the dataset is fine 
     - combine with web 
     - give the demo 
 
