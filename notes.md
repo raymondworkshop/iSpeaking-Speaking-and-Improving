@@ -3,9 +3,12 @@
 #### 2019-06-10 
   * fix the coding errors 
     - use python3.6 not python3.7 to support tensorflow 
-    - try to load pre-train acoustic module 
     
-  
+  * TODO 
+    - load pre-train acoustic module 
+    - combine with web 
+    - give the demo 
+
   * speech model -> audio to phone-level transcription
     - acoustic module 
       + Hiden Markov Model (HMM) 
