@@ -1,16 +1,47 @@
 ### notes 
 
+#### 2019-06-10 
+  * fix the coding errors 
+    - use python3.6 not python3.7 to support tensorflow 
+    - try to load pre-train acoustic module 
+    
+  
+  * speech model -> audio to phone-level transcription
+    - acoustic module 
+      + Hiden Markov Model (HMM) 
+      + deeplearning -> CNN + LSTM/GRU  
 
+    - CTC decode alg 
+      +  
+
+    - metrics 
+      + Word error rate (WER) 
+      + 
+
+    - dataset 
+      + [Spoken Corpora by eduhk](http://corpus.eduhk.hk/English_Pronunciation/?page_id=2149)
+
+#### 2019-06-06 
+  * Speech Model 
+    - acoustic module 
+      + all of basic sounds of language given their context 
+      + the likelihood p(o|w) 
+
+    - pronunciation dictionary - lexicon 
+      + how all the words get pronounced 
+
+  * Language Model  (needn't) 
+    - phonetic to word  
 
 #### 2019-06-05 
   * it is slow/effectual to output the result 
-    - the raw audio is too large (64M), and the quality isn't good 
+    - the raw audio is too large (64M), and the audio quality isn't good 
     - the target is for a given utterance like a sentence 
     - thus, it's fine now
 
 #### 2019-06-03 
   * build a web-based prototype   
-    - React + Flask  
+    - Flask + Vue.js   
     - data-driven approaches 
     - demo 
       + Input: speak a given utterance - sentence
@@ -22,14 +53,15 @@
       + 17.7% on the TIMIT
 phoneme recognition benchmark by Alex Graves - 2013 
     - the phone recognition error rate is typically much higher than word error rate even for native speakers, which makes it difficult to distinguish between pronunciation errors and recognition errors. 
+    - 
 
 
-  * ASR -> p(w|o)
+  * ASR -> p(w|o) ~ p(o|w) * p(w)
     - acoustic module 
       + all of basic sounds of language given their context 
       + HMM - statistical representations for each phoneme in a language 
 
-      + the likelihood P(O|W)
+      + the likelihood p(o|w) 
 
     - pronunciation dictionary - lexicon 
       + how all the words get pronounced 
@@ -42,7 +74,7 @@ phoneme recognition benchmark by Alex Graves - 2013
   * reference
     - [Emojist](http://emojist.com/)
 
-#### 2019-05-31
+#### 2019-05-31 
   * fix web uploading function 
     - change real-time function into uploading file -> too slow 
 
