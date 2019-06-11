@@ -4,10 +4,10 @@
   * setup the training env 
 
   * notes on errors in virtual env: 
-   - create a virtual env 
+    - create a virtual env 
      > pip install virtualenvwrapper-win 
 
-   - activate the env in powershell 
+    - activate the env in powershell 
      > C:\Users\raymondzhao\envs\speechenv\Scripts\activate.ps1
 
 #### 2019-06-10 
