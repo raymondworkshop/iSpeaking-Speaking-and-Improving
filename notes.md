@@ -1,13 +1,23 @@
 ### notes 
 
-#### 2019-06-10 
-  * fix the coding errors 
-    - use python3.6 not python3.7 to support tensorflow 
+#### 2019-06-11 
+  * setup the training env 
 
+  * notes on errors in virtual env: 
+   - create a virtual env 
+     > pip install virtualenvwrapper-win 
+
+   - activate the env in powershell 
+     > C:\Users\raymondzhao\envs\speechenv\Scripts\activate.ps1
+
+#### 2019-06-10 
   * TODO 
     - try to train an acoustic module 
     - check whether the dataset is fine 
     - combine with web 
+
+  * fix the coding errors 
+    - use python3.6 not python3.7 to support tensorflow 
 
   * speech model -> audio to phone-level transcription
     - acoustic module 
