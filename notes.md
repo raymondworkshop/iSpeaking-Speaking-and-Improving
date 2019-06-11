@@ -5,10 +5,9 @@
     - use python3.6 not python3.7 to support tensorflow 
 
   * TODO 
-    - load pre-train acoustic module 
+    - try to train an acoustic module 
     - check whether the dataset is fine 
     - combine with web 
-    - give the demo 
 
   * speech model -> audio to phone-level transcription
     - acoustic module 
