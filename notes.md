@@ -1,7 +1,15 @@
 ### notes 
 
 #### 2019-06-13 
-  * 
+  * data format 
+  *  database 
+    - TIMIT database 
+    - the WSJ database  
+    - the Switchboard database 
+    - the RAS 863 corpus (for Chinese) 
+    
+    - [Z. Z. Dong Wang, Xuewei Zhang, "THCHS-30: A free Chinese speech corpus," 2015](https://arxiv.org/abs/1512.01882) 
+
   * add the recording audio function  
   * notes 
     - dataset 
@@ -37,14 +45,14 @@
 
   * speech model -> audio to phone-level transcription
     - acoustic module 
-      + Hiden Markov Model (HMM) 
-      + deeplearning -> CNN + LSTM/GRU  
+      + Hiden Markov Model (HMM) + GMM 
+      + HMM + deeplearning -> CNN + LSTM/GRU  -> latest
 
     - CTC decode alg 
       +  
 
     - metrics 
-      + Word error rate (WER) 
+      + accuracy: Word error rate (WER) 
       + 
 
     - dataset 
@@ -70,7 +78,7 @@
 
 #### 2019-06-03 
   * build a web-based prototype   
-    - Flask + Vue.js   
+    - Flask + React   
     - data-driven approaches 
     - demo 
       + Input: speak a given utterance - sentence

@@ -33,6 +33,16 @@
 </div>
 -->
 
+<p>You spoke: </p>
+<div id="controls">
+    <button onclick="startRecording(this);">record</button>
+    <button onclick="stopRecording(this);" disabled>stop</button>
+    <!--
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+    -->
+</div>
+<br>
+
 <p>Upload your voice (in wav format)</p>
 <body>
     
@@ -46,12 +56,15 @@
     
 </body>
 <br>
+
+
 <h2>Recordings</h2>
     <ul id="recordingslist"></ul>
   
 <h2>Log</h2>
    <pre id="log"></pre>
 
+   <!--
 <script>
     recorder.onchange = function(e){
   var sound = document.getElementById('sound');
@@ -64,19 +77,10 @@
 }
 
  </script>
+-->
 
-<!--
 <script>
-    
-      //socket 
-      var socket = io.connect('http://' + document.domain + ':' + location.port);
-      socket.on('connect', function() {
-        __log('Websocket connected!');
-      });
-    // message handler for the 'join_room' channel
-      socket.on('join_room', function(msg) {
-      __log(msg);
-    });
+
       //
         function __log(e, data) {
           log.innerHTML += "\n" + e + " " + (data || '');
@@ -169,7 +173,7 @@
         </script>
       
         <script src="../../static/recorder.js"></script>
-    -->
+    
 
 <!--
 <script src="record.js"></script>
