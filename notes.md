@@ -3,7 +3,7 @@
 #### 2019-06-12
   * training a module 
     - errors 
-  * will talk with Dr. Lam about the plan 
+  * talk with Dr. Lam 
 
 #### 2019-06-11 
   * setup the training env 
