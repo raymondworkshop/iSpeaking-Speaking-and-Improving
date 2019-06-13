@@ -10,14 +10,14 @@
 
 {% block content %}
 
-<p>Text: </p>
-<li id="txt" contenteditable="true">
-    <small>{{ posts | safe }}</small>
-</li>
-
 <p>IPA: </p>
 <li id="ipa"  contenteditable="true">
     <small>{{ _ipa | safe }}</small>
+</li>
+
+<p>Text: </p>
+<li id="txt" contenteditable="true">
+    <small>{{ posts | safe }}</small>
 </li>
 
 <p>You spoke: </p>

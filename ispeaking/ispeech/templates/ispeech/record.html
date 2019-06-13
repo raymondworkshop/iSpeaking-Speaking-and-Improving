@@ -10,17 +10,18 @@
 
 {% block content %}
 
+<p>IPA: </p>
+<li id="ipa"  contenteditable="true">
+    <small>{{ _ipa | safe }}</small>
+</li>
+<br>
+
 <p>Text: </p>
 <li id="txt" contenteditable="true">
     <small>{{ posts | safe }}</small>
 </li>
 <br>
 
-<p>IPA: </p>
-<li id="ipa"  contenteditable="true">
-    <small>{{ _ipa | safe }}</small>
-</li>
-<br>
 <!--
 <p>You spoke: </p>
 <div id="controls">
@@ -34,11 +35,15 @@
 
 <p>Upload your voice (in wav format)</p>
 <body>
+    
     <form action = "http://localhost:5000/uploader" method = "POST" 
            enctype = "multipart/form-data">
-           <input type = "file" name = "file" />
+           <input type = "file" name = "file" id="recorder"/>
            <input type = "submit"/>
     </form>
+
+    <audio id="sound" controls></audio>
+    
 </body>
 <br>
 <h2>Recordings</h2>
@@ -48,6 +53,21 @@
    <pre id="log"></pre>
 
 <script>
+    recorder.onchange = function(e){
+  var sound = document.getElementById('sound');
+  sound.src = URL.createObjectURL(this.files[0]);
+  // not really needed in this exact case, but since it is really important in other cases,
+  // don't forget to revoke the blobURI when you don't need it
+  sound.onend = function(e) {
+    URL.revokeObjectURL(this.src);
+  }
+}
+
+ </script>
+
+<!--
+<script>
+    
       //socket 
       var socket = io.connect('http://' + document.domain + ':' + location.port);
       socket.on('connect', function() {
@@ -149,6 +169,7 @@
         </script>
       
         <script src="../../static/recorder.js"></script>
+    -->
 
 <!--
 <script src="record.js"></script>

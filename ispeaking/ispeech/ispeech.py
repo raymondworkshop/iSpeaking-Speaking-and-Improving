@@ -239,6 +239,8 @@ def upload():
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
+        txt = ""
+        _ipa = ""
 
         if file and allowed_file(file.filename):
             filename = os.path.join(UPLOAD_FOLDER, secure_filename(file.filename))

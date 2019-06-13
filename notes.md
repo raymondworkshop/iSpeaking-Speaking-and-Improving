@@ -1,5 +1,16 @@
 ### notes 
 
+#### 2019-06-13 
+  * 
+  * add the recording audio function  
+  * notes 
+    - dataset 
+      + [International Corpora](http://corpus.eduhk.hk/phonetics/Resources.aspx)
+    - Kaldi Speech Recognition Toolkit 
+    - fix the pocketsphinx  error 
+     > pip install C:\pocketsphinx-0.1.15-cp37-cp37m-win_amd64.whl
+
+
 #### 2019-06-12
   * training a module 
     - errors 
