@@ -33,29 +33,35 @@
 </div>
 -->
 
+<!--
 <p>You spoke: </p>
 <div id="controls">
+    
     <button onclick="startRecording(this);">record</button>
     <button onclick="stopRecording(this);" disabled>stop</button>
-    <!--
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
-    -->
+    
+    <input type="file" accept="audio/*" capture="microphone" id="recorder">
+    <audio id="player" controls>
+    </audio>
+
+
 </div>
 <br>
+-->
 
 <p>Upload your voice (in wav format)</p>
-<body>
-    
+<div id="controls">
     <form action = "http://localhost:5000/uploader" method = "POST" 
            enctype = "multipart/form-data">
-           <input type = "file" name = "file" id="recorder"/>
+           <input type = "file" name = "file" accept="audio/*" capture="microphone" id="recorder">
+           <audio id="player" controls></audio>
            <input type = "submit"/>
     </form>
 
-    <audio id="sound" controls></audio>
-    
-</body>
+</div>
+
 <br>
+
 
 
 <h2>Recordings</h2>
