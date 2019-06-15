@@ -1,5 +1,10 @@
 ### notes 
 
+#### 2019-06-15
+  * notes on errors 
+    > flask run --no-reload
+
+
 #### 2019-06-14 
   * train a Mandarin Module based on thchs30 corpus 
 
