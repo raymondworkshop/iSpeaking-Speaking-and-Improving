@@ -1,6 +1,7 @@
 ### notes 
 
-#### 2019-06-15
+#### 2019-06-15 
+  * [cantonese corpus (HKCanCor)](http://compling.hss.ntu.edu.sg/hkcancor/)
   * notes on errors 
     > flask run --no-reload
 
