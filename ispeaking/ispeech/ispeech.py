@@ -52,6 +52,10 @@ import math
 import numpy as np
 
 
+#
+from . import SpeechModel251
+
+
 UPLOAD_FOLDER = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
 ALLOWED_EXTENSIONS = set(['wav'])
 #
@@ -76,7 +80,6 @@ def index():
 def record():
     txt = ""
     _ipa = "" 
-
     """
     dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
     demo = sr.AudioFile( dir + 'english81.wav')
@@ -86,6 +89,7 @@ def record():
     #print(txt)
     _ipa = ipa.convert(txt)
     """
+
     txt = "Hello, World"
     _ipa = ipa.convert(txt)
     
@@ -234,9 +238,23 @@ def upload():
 
     return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)
 
-
+datapath = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\speech_model\\"
+#datapath = '/data/raymond/workspace/speech/dataset/'
 @bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
+    #  get the selected language from the user
+    language = 0
+    """
+    db = get_db()
+        
+    language = db.execute(
+            'SELECT language FROM user WHERE username = ?', (username,) ).fetchone()
+
+    print("language: ", language)
+    """
+    # mandarin
+    language = 2 
+
     if request.method == 'POST':
         file = request.files['file']
         txt = ""
@@ -248,10 +266,20 @@ def upload_file():
 
             print('file uploaded successfully')
 
-            txt = get_post(filename)
-            print(txt)
-            _ipa = ipa.convert(txt)
-            print(_ipa)
+            if language == 0:
+                txt = get_post(filename)
+                print(txt)
+                _ipa = ipa.convert(txt)
+                print(_ipa)
+            elif language == 2:
+                #mandarin
+                #load the module 
+                ms = SpeechModel251.ModelSpeech(datapath)
+                ms.LoadModel(datapath + 'speech_model251_e_0_step_266000.model')
+
+                _ipa = ms.RecognizeSpeech_FromFile(filename)
+            else:
+                pass
     
         #ws.send
         return render_template('ispeech/record.html', posts=txt, _ipa=_ipa)

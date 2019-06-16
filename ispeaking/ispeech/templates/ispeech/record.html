@@ -23,6 +23,15 @@
 <br>
 
 <!--
+<p>Languages: </p>
+<li id="txt" contenteditable="true">
+    <small>{{ posts | safe }}</small>
+</li>
+<br>
+-->
+
+
+<!--
 <p>You spoke: </p>
 <div id="controls">
     
@@ -49,7 +58,7 @@
 <br>
 -->
 
-<p>Upload your voice (in wav format)</p>
+<p>Upload your voice (<15s in wav format)</p>
 <div id="controls">
     <form action = "http://localhost:5000/uploader" method = "POST" 
            enctype = "multipart/form-data">
@@ -61,7 +70,6 @@
 </div>
 
 <br>
-
 
 
 <h2>Recordings</h2>

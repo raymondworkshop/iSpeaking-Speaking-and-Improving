@@ -13,6 +13,9 @@ paper/
 _speech/
 
 .vscode/
+*h5
+*model
+*base
 gcloud_speech_voice_recorder/
 socketio-examples/
 asrt_speechrecognition/

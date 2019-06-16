@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!-- Jinja2 -->
 
-<title>{% block title %}{% endblock %} - iSpeaking</title>
+<title>{% block title %}{% endblock %} - iSpeaking </title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         
 <nav>
@@ -15,7 +15,7 @@
             <li><a href="{{ url_for('auth.register') }}">Register</a>
             <li><a href="{{ url_for('auth.login') }}">Log In</a>
         {% endif %}
-        
+        <li><a href="{{ url_for('auth.setting') }}">setting</a>
     </ul>     
 </nav>
 

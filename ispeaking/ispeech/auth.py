@@ -11,12 +11,21 @@ from ispeech.db import get_db
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
+@bp.route('/setting', methods=('GET', 'POST'))
+def setting():
+    return
+
 
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        language = request.form['language']
+
+        print('username:', username)
+        print('selected language:', language)
+
         db = get_db()
         error = None
 
@@ -31,8 +40,8 @@ def register():
 
         if error is None:
             db.execute(
-                'INSERT INTO user (username, password) VALUES (?, ?)',
-                (username, generate_password_hash(password))
+                'INSERT INTO user (username, password, language) VALUES (?, ?, ?)',
+                (username, generate_password_hash(password), language)
             )
             db.commit()
             return redirect(url_for('auth.login'))
@@ -46,6 +55,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        
         db = get_db()
         error = None
         user = db.execute(
