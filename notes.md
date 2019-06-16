@@ -12,13 +12,13 @@
 
 #### 2019-06-13 
   * data format 
-  *  database 
+  * spoken database  
     - TIMIT database 
-    - the WSJ database  
+    - the WSJ database 
     - the Switchboard database 
     - the RAS 863 corpus (for Chinese) 
     
-    - [Z. Z. Dong Wang, Xuewei Zhang, "THCHS-30: A free Chinese speech corpus," 2015](https://arxiv.org/abs/1512.01882) 
+    - [Z. Z. Dong Wang, Xuewei Zhang, "THCHS-30: A free Mandarin speech corpus," 2015](https://arxiv.org/abs/1512.01882) 
 
   * add the recording audio function  
   * notes 
