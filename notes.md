@@ -1,13 +1,19 @@
 ### notes 
 
+#### 2019-06-17 
+  * rebuild web frontend using vue.js 
+  * 
+
 #### 2019-06-15 
-  * [cantonese corpus (HKCanCor)](http://compling.hss.ntu.edu.sg/hkcancor/)
+  *  speaking corpus 
+    - 
+    - [cantonese corpus (HKCanCor)](http://compling.hss.ntu.edu.sg/hkcancor/)
   * notes on errors 
     > flask run --no-reload
 
 
 #### 2019-06-14 
-  * train a Mandarin Module based on thchs30 corpus 
+  * train a Module based on thchs30 Mandarin speech corpus 
 
 
 #### 2019-06-13 
