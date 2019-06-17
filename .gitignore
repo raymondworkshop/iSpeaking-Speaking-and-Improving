@@ -11,6 +11,8 @@ __pycache__/
 
 paper/
 _speech/
+flask-vue-spa/
+*json
 
 .vscode/
 *h5
