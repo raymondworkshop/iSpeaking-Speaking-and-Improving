@@ -1,5 +1,18 @@
 ### notes 
 
+#### 2019-06-19 
+  * give a presentation
+  * todo 
+    - more robust tests on current module 
+    - give an introduction on deep learning 
+    - module on English 
+
+#### 2019-06-18
+  * two issues
+    - Extended pronunciation network ?
+
+
+
 #### 2019-06-17 
   * rebuild web frontend using vue.js 
   * 
