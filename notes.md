@@ -3,6 +3,7 @@
 #### 2019-06-21 
   * idea 
     - tts 
+    - chatting 
 
 #### 2019-06-20
   * python doc 
