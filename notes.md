@@ -1,5 +1,12 @@
 ### notes 
 
+#### 2019-06-21 
+  * idea 
+    - tts 
+
+#### 2019-06-20
+  * python doc 
+
 #### 2019-06-19 
   * give a presentation
   * todo 
