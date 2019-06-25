@@ -1,9 +1,22 @@
 ### notes 
 
+#### 2019-06-25
+  * about python 
+
+#### 2019-06-24 
+  * 
+  * notes on the server 
+    - the server: 10.237.4.253 raymond/raymond 
+    - source /usr/local/tensorflow/bin/activate 
+    - GPU: export CUDA_VISIBLE_DEVICES=0 
+    - check gpu process : nvidiva-smi 
+
+
 #### 2019-06-21 
-  * idea 
+  * ideas 
     - tts 
     - chatting 
+
 
 #### 2019-06-20
   * python doc 
