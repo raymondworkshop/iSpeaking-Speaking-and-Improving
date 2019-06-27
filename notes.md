@@ -1,12 +1,14 @@
 ### notes 
 
 #### 2019-06-27 
-  * coding on web 
+  * TODO - frontend
   * 
   * resource 
     - [ShefCE: A Cantonese-English bilingual speech corpus
 ](https://figshare.shef.ac.uk/articles/ShefCE_A_Cantonese-English_bilingual_speech_corpus_--_speech_recognition_model_sets_and_recording_transcripts/4522925)
-    - [Corpus Linguistics in EdUHK](http://corpus.eduhk.hk/)
+    - [Corpus Linguistics in EdUHK](http://corpus.eduhk.hk/) 
+    - [TIMIT](https://github.com/philipperemy/timit)
+    - [emoji translation](https://meowni.ca/emoji-translate/)
    
 
 #### 2019-06-25
