@@ -1,5 +1,18 @@
 ### notes 
 
+#### 2019-07-02 
+  * request ShefCE data 
+  * check heroku
+
+#### 2019-06-28 
+  * opuslib 
+  *  
+  * about vue.js  
+    > npm install -g @vue/cli 
+    > 
+    > vue create app  
+    > s
+
 #### 2019-06-27 
   * TODO - frontend
   * 
