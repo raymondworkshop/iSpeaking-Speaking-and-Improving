@@ -1,5 +1,17 @@
 ### notes 
 
+#### 2019-07-04 
+  * 
+  * set up the connect between local and server 
+    - build opus dll on win
+    - use tornado as server 
+      + brautopy lib to upload audio to server 
+
+
+#### 2019-07-03
+  * check Vue.js + Flask 
+    - drop 
+
 #### 2019-07-02 
   * request ShefCE data 
   * check heroku
