@@ -1,5 +1,12 @@
 ### notes 
 
+#### 2019-07-05
+  * redo the frontend using tornado framework 
+    - tornado is fast 
+
+  * notes
+    - there are errors to use jinja2 templates 
+
 #### 2019-07-04 
   * 
   * set up the connect between local and server 
