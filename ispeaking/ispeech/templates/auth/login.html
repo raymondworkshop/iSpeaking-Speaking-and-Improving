@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Log In{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <form method="post">
+    <label for="username">Username</label>
+    <input name="username" id="username" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+
+    <label for="language"> Language
+    <select name="language" id="language" required>
+        <option value="0" selected>English</option>
+        <option value="1">Cantonese</option>
+        <option value="2">Mandarin</option>
+        <option value="3">Other?</option>
+    </select>
+    </label>
+    <br>
+    <input type="submit" value="Log In">
+  </form>
+{% endblock %}
+
+
+<!--
+<form>
+        <dt>{{ form.algs.label }}    
+        <dd>{{ form.algs}}
+        
+        <br/>
+         <dd>{{ form.submit }}
+
+</form>
+-->
