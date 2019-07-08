@@ -89,10 +89,14 @@ class MainHandler(tornado.web.RequestHandler):
         self.render("www/index.html")
 """
 
+class Hello(tornado.web.RequestHandler):
+    def get(self):
+        self.write("Hello")
+
 #index_output = template.render(title="Speaking & Improving")
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("index.html")
+        self.render("www/index.html")
         
 
 
@@ -107,13 +111,14 @@ class RecordHandler(tornado.web.RequestHandler):
 
 # Give it to Tornado to replace the default Loader.
 settings = { 
-    "template_path": os.path.join(os.path.dirname(__file__), "templates"),
-    "static_path": os.path.join(os.path.dirname(__file__), "templates/static"),
+    #"template_path": os.path.join(os.path.dirname(__file__), "www"),
+    #"static_path": os.path.join(os.path.dirname(__file__), "static"),
     "debug": True,
-    "autoreload": True 
+    "autoreload": True,
     }
 
 application = tornado.web.Application([
+    (r'/hello', Hello),
     (r'/ws', OpusDecoderWS),
     (r'/', MainHandler),
     #(r'/record', RecordHandler),

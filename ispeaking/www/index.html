@@ -1,15 +1,48 @@
-<html>
+
+{% extends "base.html" %}
+        <!--
   <style>
     h1, h2 { display: inline-block; }
   </style>
-  <body>
+  -->
+  {% block content %}
+  <h1>{% block title %}Speaking & Improving{% end %}</h1>
+  
+  <p>IPA: </p>
+  <li id="ipa"  contenteditable="true">
+    <small>{{"ipa"}}</small>
+  </li>
+  <br>
+
+  <p>Text: </p>
+  <li id="txt" contenteditable="true">
+    <small>{{ "txt" }}</small>
+  </li>
+  <br>
+
+  <p>Record your voice  <small>(<15s in wav format)</small></p>
     <form>
       <input type="checkbox" id="encode">Encode</input><br>
     </form>
     <button onclick="toggleRecord()" id="record">Record</button>
-  </body>
+ <br>
+
+  <!--
+   <p>Upload your voice (<15s in wav format)</p>
+    <div id="controls">
+        <form action = "http://localhost:8000/uploader" method = "POST" 
+               enctype = "multipart/form-data">
+               <input type = "file" name = "file" accept="audio/*" capture="microphone" id="recorder">
+               <audio id="player" controls></audio>
+               <input type = "submit"/>
+        </form>
+    
+    </div>
+    -->
+
   <script src=libopus.js></script>
   <script src=opus.js></script>
   <script src=handler.js></script>
   <script src=main.js></script>
-</html>
+
+  {% end %}
