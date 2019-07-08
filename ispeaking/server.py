@@ -29,6 +29,14 @@ templateEnv = Environment( loader=templateLoader )
 template = templateEnv.get_template(TEMPLATE_FILE)
 """
 
+#
+import speech_recognition as sr
+r = sr.Recognizer()
+import eng_to_ipa as ipa
+
+filename = ""
+_filename = 'C:/Users/raymondzhao/myproject/dev.speech/ispeaking/data/english81.wav'
+
 class OpusDecoderWS(tornado.websocket.WebSocketHandler):
     
     def open(self):
@@ -44,6 +52,7 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
         #op_rate : the rate we told opus encoder
         #op_frm_dur : opus frame duration
 
+        global filename
         filename = str(uuid.uuid4()) + '.wav'
 
         wave_write = wave.open(filename, 'wb')
@@ -89,16 +98,47 @@ class MainHandler(tornado.web.RequestHandler):
         self.render("www/index.html")
 """
 
+
+
 class Hello(tornado.web.RequestHandler):
     def get(self):
         self.write("Hello")
 
+
+
 #index_output = template.render(title="Speaking & Improving")
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("www/index.html")
-        
+        txt = ""
+        _ipa = ""
 
+        demo = ""
+        global filename, _filename
+        if not filename:
+            filename = _filename 
+        print("filename: ", filename)
+
+        demo = sr.AudioFile(filename)
+        with demo as source:
+            print("demo:", demo)
+            audio = r.record(demo)
+
+        try:
+            #txt = r.recognize_google(speech, language = 'hi-IN')
+            #txt = r.recognize_google(speech)
+            txt = r.recognize_sphinx(audio)
+            print('TEXT: ' + txt)
+        except sr.UnknownValueError:
+            print("Could not recognize the audio")
+        except sr.RequestError as e:
+            print("Error; {0}".format(e))
+
+        #txt = get_post(demo)
+        _ipa = ipa.convert(txt)
+        print("txt: ", txt)
+        print("_ipa:", _ipa)
+        self.render("www/index.html", txt=txt, _ipa=_ipa)
+        
 
 class RecordHandler(tornado.web.RequestHandler):
     def get(self):
