@@ -1,14 +1,18 @@
 ### notes 
 
-
+#### 2019-07-08
+  * update the frontend code 
+    - record the voice and sent to server successfully 
+    
+  * todo - module
+    - adjust the code on Chinese one 
+    - train module based on english dataset
 
 #### 2019-07-05
   * redo the frontend using tornado framework 
     - tornado is fast 
 
-  * todo 
-    - adjust the code on Chinese one 
-    - train module based on english dataset
+
 
   * notes
     - there are errors to use jinja2 templates 

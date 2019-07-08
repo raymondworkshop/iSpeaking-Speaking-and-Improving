@@ -86,28 +86,10 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
                 self.wave_write.writeframes(data)
 
     def on_close(self):
-
         if self.initialized :
             self.wave_write.close()
-
         print('connection closed')
 
-"""
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render("www/index.html")
-"""
-
-
-
-class Hello(tornado.web.RequestHandler):
-    def get(self):
-        self.write("Hello")
-
-
-
-#index_output = template.render(title="Speaking & Improving")
-class MainHandler(tornado.web.RequestHandler):
     def get(self):
         txt = ""
         _ipa = ""
@@ -137,6 +119,26 @@ class MainHandler(tornado.web.RequestHandler):
         _ipa = ipa.convert(txt)
         print("txt: ", txt)
         print("_ipa:", _ipa)
+        self.render("www/index.html", txt=txt, _ipa=_ipa)
+        
+
+
+"""
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("www/index.html")
+"""
+
+class Hello(tornado.web.RequestHandler):
+    def get(self):
+        self.write("Hello")
+
+
+#index_output = template.render(title="Speaking & Improving")
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        txt = ""
+        _ipa = ""
         self.render("www/index.html", txt=txt, _ipa=_ipa)
         
 
