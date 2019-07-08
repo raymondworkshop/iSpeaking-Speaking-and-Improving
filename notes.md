@@ -1,18 +1,19 @@
 ### notes 
 
-#### 2019-07-08
-  * update the frontend code 
-    - record the voice and sent to server successfully 
-    
+#### 2019-07-08 
   * todo - module
     - adjust the code on Chinese one 
     - train module based on english dataset
 
+  * update the frontend code 
+    - record the voice and sent to server  
+    - need to use [pocketsphinx.js](https://github.com/syl22-00/pocketsphinx.js) 
+    - need to check more 
+
+
 #### 2019-07-05
   * redo the frontend using tornado framework 
     - tornado is fast 
-
-
 
   * notes
     - there are errors to use jinja2 templates 
@@ -84,7 +85,6 @@
 #### 2019-06-18
   * two issues
     - Extended pronunciation network ?
-
 
 
 #### 2019-06-17 
