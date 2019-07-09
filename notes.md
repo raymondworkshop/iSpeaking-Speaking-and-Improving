@@ -1,5 +1,11 @@
 ### notes 
 
+#### 2019-07-09 
+  * use TIMIT dataset 
+
+  * todo 
+    - add database function when updating 
+
 #### 2019-07-08 
   * todo - module
     - adjust the code on Chinese one 
