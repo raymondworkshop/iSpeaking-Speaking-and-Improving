@@ -35,7 +35,52 @@ r = sr.Recognizer()
 import eng_to_ipa as ipa
 
 filename = ""
+txt = ""
+_ipa = ""
 _filename = 'C:/Users/raymondzhao/myproject/dev.speech/ispeaking/data/english81.wav'
+
+def get_post(demo, check_author=True):
+    #
+    # source = sr.microphone(sample_rate = 48000, chunk_size=8192)
+    txt = ""
+
+    """
+    with sr.Microphone() as source:
+        print("Calling microphone ...")
+        # listen for 2 seconds, and filter out the ambient noise
+        r.adjust_for_ambient_noise(source, duration=2)
+        print("Say something!")
+        speech = r.listen(source)
+        #
+        # record voice
+        
+        #audio = r.record(source)
+    """
+
+    with demo as source:
+        #r.adjust_for_ambient_noise(source, duration=2)
+        print("demo:", demo)
+        audio = r.record(demo)
+    
+    #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
+    #demo = sr.AudioFile( dir + 'english81.wav')
+
+    #txt = get_post(demo)
+
+    # recognize speech using Sphinx
+    try:
+        #txt = r.recognize_google(speech, language = 'hi-IN')
+        #txt = r.recognize_google(speech)
+        txt = r.recognize_sphinx(audio)
+        print('TEXT: ' + txt)
+    except sr.UnknownValueError:
+        print("Could not recognize the audio")
+    except sr.RequestError as e:
+        print("Error; {0}".format(e))
+
+    #print(txt)  
+    return txt
+
 
 class OpusDecoderWS(tornado.websocket.WebSocketHandler):
     
@@ -52,7 +97,7 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
         #op_rate : the rate we told opus encoder
         #op_frm_dur : opus frame duration
 
-        global filename
+        txt = ""
         filename = str(uuid.uuid4()) + '.wav'
 
         wave_write = wave.open(filename, 'wb')
@@ -88,39 +133,13 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
     def on_close(self):
         if self.initialized :
             self.wave_write.close()
+
+        # wav to txt
+        #txt = "" 
+        global txt  
+        txt = get_post(self.filename)
+
         print('connection closed')
-
-    def get(self):
-        txt = ""
-        _ipa = ""
-
-        demo = ""
-        global filename, _filename
-        if not filename:
-            filename = _filename 
-        print("filename: ", filename)
-
-        demo = sr.AudioFile(filename)
-        with demo as source:
-            print("demo:", demo)
-            audio = r.record(demo)
-
-        try:
-            #txt = r.recognize_google(speech, language = 'hi-IN')
-            #txt = r.recognize_google(speech)
-            txt = r.recognize_sphinx(audio)
-            print('TEXT: ' + txt)
-        except sr.UnknownValueError:
-            print("Could not recognize the audio")
-        except sr.RequestError as e:
-            print("Error; {0}".format(e))
-
-        #txt = get_post(demo)
-        _ipa = ipa.convert(txt)
-        print("txt: ", txt)
-        print("_ipa:", _ipa)
-        self.render("www/index.html", txt=txt, _ipa=_ipa)
-        
 
 
 """
@@ -137,8 +156,11 @@ class Hello(tornado.web.RequestHandler):
 #index_output = template.render(title="Speaking & Improving")
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        txt = ""
+        global txt
+
         _ipa = ""
+        if not txt:
+            _ipa = ipa.convert(txt)
         self.render("www/index.html", txt=txt, _ipa=_ipa)
         
 

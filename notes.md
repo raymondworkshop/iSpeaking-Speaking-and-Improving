@@ -41,7 +41,7 @@
     > npm install -g @vue/cli 
     > 
     > vue create app  
-    > s
+    > 
 
 #### 2019-06-27 
   * TODO - frontend
