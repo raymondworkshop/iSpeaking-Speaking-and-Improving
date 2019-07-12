@@ -1,8 +1,9 @@
 ### notes 
 
 #### 2019-07-12 
+  * about python
 
-#### 2019-07-11 
+#### 2019-07-11  
   
   * check L2  using chatbot format ?
 
