@@ -1,7 +1,13 @@
 ### notes 
 
+#### 2019-07-12 
+
+#### 2019-07-11 
+  
+  * check L2  using chatbot format ?
+
 #### 2019-07-09 
-  * use TIMIT dataset 
+  * <del>use TIMIT dataset</del> 
 
   * todo 
     - add database function when updating 
