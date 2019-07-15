@@ -1,10 +1,15 @@
 ### notes 
 
+#### 2019-07-15 
+  * doc about python 
+  * code the prototype 
+
 #### 2019-07-12 
-  * about python
+  * read the papers from Dr. Lam 
+
 
 #### 2019-07-11  
-  * read the papers from Dr. Lam 
+  * about python 
   
   * check L2  using chatbot format ?
 
