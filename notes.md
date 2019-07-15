@@ -4,6 +4,7 @@
   * about python
 
 #### 2019-07-11  
+  * read the papers 
   
   * check L2  using chatbot format ?
 
