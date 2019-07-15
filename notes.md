@@ -4,7 +4,7 @@
   * about python
 
 #### 2019-07-11  
-  * read the papers 
+  * read the papers from Dr. Lam 
   
   * check L2  using chatbot format ?
 
