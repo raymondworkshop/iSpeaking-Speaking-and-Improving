@@ -1,12 +1,19 @@
 ### notes 
 
+#### 2019-07-17
+  * update the errors in the database  
+
+
+#### 2019-07-16 
+  * prototype 
+    - adding the database  
+
 #### 2019-07-15 
   * doc about python 
   * code the prototype 
 
 #### 2019-07-12 
   * read the papers from Dr. Lam 
-
 
 #### 2019-07-11  
   * about python 
