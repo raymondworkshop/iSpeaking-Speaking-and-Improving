@@ -2,7 +2,7 @@
 
 #### 2019-07-17
   * update the errors in the database  
-
+  * read the paper 
 
 #### 2019-07-16 
   * prototype 
