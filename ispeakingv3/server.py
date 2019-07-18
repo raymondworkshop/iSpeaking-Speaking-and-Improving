@@ -10,6 +10,8 @@ import tornado.ioloop
 import tornado.web
 import tornado.websocket
 import tornado.wsgi
+from tornado.options import define, options
+
 import wave
 import uuid
 import gc
@@ -37,6 +39,7 @@ import eng_to_ipa as ipa
 filename = ""
 txt = ""
 _ipa = ""
+DIR = 'C:/Users/raymondzhao/myproject/dev.speech/ispeakingv3/data/'
 _filename = 'C:/Users/raymondzhao/myproject/dev.speech/ispeaking/data/english81.wav'
 
 def get_post(demo, check_author=True):
@@ -98,7 +101,7 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
         #op_frm_dur : opus frame duration
 
         txt = ""
-        filename = str(uuid.uuid4()) + '.wav'
+        filename = DIR + str(uuid.uuid4()) + '.wav'
 
         wave_write = wave.open(filename, 'wb')
         wave_write.setnchannels(1)
@@ -136,8 +139,8 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
 
         # wav to txt
         #txt = "" 
-        global txt  
-        txt = get_post(self.filename)
+        #global txt  
+        #txt = get_post(self.filename)
 
         print('connection closed')
 
@@ -148,7 +151,7 @@ class MainHandler(tornado.web.RequestHandler):
         self.render("www/index.html")
 """
 
-class Hello(tornado.web.RequestHandler):
+class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("Hello")
 
@@ -156,17 +159,19 @@ class Hello(tornado.web.RequestHandler):
 #index_output = template.render(title="Speaking & Improving")
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        global txt
-
-        _ipa = ""
+        #global txt
+        txt = "Hello, World"
+        _ipa = "hɛˈloʊ, wərld"
         if not txt:
             _ipa = ipa.convert(txt)
-        self.render("www/index.html", txt=txt, _ipa=_ipa)
+        self.render("index.html", txt=txt, _ipa=_ipa)
         
 
 class RecordHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("record.html")
+        txt = ""
+        _ipa = ""
+        self.render("record.html", posts=txt, _ipa=_ipa)
 
 
 #import jinja2
@@ -175,22 +180,23 @@ class RecordHandler(tornado.web.RequestHandler):
 
 # Give it to Tornado to replace the default Loader.
 settings = { 
-    #"template_path": os.path.join(os.path.dirname(__file__), "www"),
+    "template_path": os.path.join(os.path.dirname(__file__), "www"),
     #"static_path": os.path.join(os.path.dirname(__file__), "static"),
     "debug": True,
     "autoreload": True,
     }
 
 application = tornado.web.Application([
-    (r'/hello', Hello),
+    (r'/hello', IndexHandler),
     (r'/ws', OpusDecoderWS),
     (r'/', MainHandler),
-    #(r'/record', RecordHandler),
-    (r'/(.*)', tornado.web.StaticFileHandler, { 'path' : './www' }),
+    (r'/record', RecordHandler),
+    #(r'/(.*)', tornado.web.StaticFileHandler, { 'path' : './www' }),
     #(r'.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
     ], **settings)
 
 if __name__ == "__main__":
+    tornado.options.parse_command_line()
     """
     wsgi_app = tornado.wsgi.WSGIContainer(app)
 
@@ -205,6 +211,6 @@ if __name__ == "__main__":
 
     http_server = tornado.httpserver.HTTPServer(application)
 
-    http_server.listen(int(os.environ.get('PORT', 8888)))
+    http_server.listen(int(os.environ.get('PORT', 8000)))
     print('http server started')
     tornado.ioloop.IOLoop.instance().start()
