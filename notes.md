@@ -1,9 +1,13 @@
 ### notes 
 
+#### 2019-07-19
+  * notes on mongodb
+    - client = MongoClient('localhost', 27017)
+
 #### 2019-07-18 
   * coding
-    - now it could recording and uploading successfully 
-    
+    - now it could record and uploading successfully 
+
 
 #### 2019-07-17
   * update the errors in the database  
