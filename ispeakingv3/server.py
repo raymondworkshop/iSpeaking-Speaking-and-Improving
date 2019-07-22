@@ -13,6 +13,7 @@ import tornado.wsgi
 from tornado.options import define, options
 
 import wave
+from scipy.io import wavfile
 import uuid
 import gc
 from opus.decoder import Decoder as OpusDecoder
@@ -20,29 +21,25 @@ from opus.decoder import Decoder as OpusDecoder
 #
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-#
-#from app import app
-"""
-from jinja2 import  Environment, FileSystemLoader
-# Load template file templates/site.html
-TEMPLATE_FILE = "index.html"
-templateLoader = FileSystemLoader( searchpath="templates/" )
-templateEnv = Environment( loader=templateLoader )
-template = templateEnv.get_template(TEMPLATE_FILE)
-"""
-
-#
-import speech_recognition as sr
-r = sr.Recognizer()
 import eng_to_ipa as ipa
 
-filename = ""
-txt = ""
-_ipa = ""
-DIR = 'C:/Users/raymondzhao/myproject/dev.speech/ispeakingv3/data/'
-_filename = 'C:/Users/raymondzhao/myproject/dev.speech/ispeaking/data/english81.wav'
+#DIR = 'C:/Users/raymondzhao/myproject/dev.speech/ispeakingv3/'
+DIR = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeakingv3/'
+DATADIR = DIR + "data/"
+DATABASEDIR = DIR + "database/"
+#_filename = 'C:/Users/raymondzhao/myproject/dev.speech/ispeaking/data/english81.wav'
 
-def get_post(demo, check_author=True):
+# database 
+import sqlite3
+db = sqlite3.connect(DIR+'database/speech.db')
+#import database
+#db = database.get_db()
+
+# app
+import speech_recognition as sr
+r = sr.Recognizer()
+
+def get_post(_demo, check_author=True):
     #
     # source = sr.microphone(sample_rate = 48000, chunk_size=8192)
     txt = ""
@@ -59,11 +56,12 @@ def get_post(demo, check_author=True):
         
         #audio = r.record(source)
     """
-
+    print("The demo:", _demo)
+    demo = sr.AudioFile(_demo)
     with demo as source:
         #r.adjust_for_ambient_noise(source, duration=2)
-        print("demo:", demo)
-        audio = r.record(demo)
+        #print("demo:", source)
+        audio = r.record(source)
     
     #dir = 'C:/Users/raymondzhao/myproject/dev.speech/speech/audio/'
     #demo = sr.AudioFile( dir + 'english81.wav')
@@ -84,11 +82,9 @@ def get_post(demo, check_author=True):
     #print(txt)  
     return txt
 
-
 class OpusDecoderWS(tornado.websocket.WebSocketHandler):
     
     def open(self):
-
         print('new connection')
         self.initialized = False
 
@@ -102,7 +98,7 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
 
         txt = ""
         filename = DIR + str(uuid.uuid4()) + '.wav'
-
+        
         wave_write = wave.open(filename, 'wb')
         wave_write.setnchannels(1)
         wave_write.setsampwidth(2) #int16, even when not encoded
@@ -110,6 +106,11 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
 
         if self.initialized :
             self.wave_write.close()
+
+        self.filename = filename
+        print("filename: ", filename)
+        db.execute('insert into post(body) values (?)', [filename])
+        db.commit()
 
         self.is_encoded = is_encoded
         self.decoder = OpusDecoder(op_rate, 1)
@@ -144,7 +145,6 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
 
         print('connection closed')
 
-
 """
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -162,8 +162,7 @@ class MainHandler(tornado.web.RequestHandler):
         #global txt
         txt = "Hello, World"
         _ipa = "hɛˈloʊ, wərld"
-        if not txt:
-            _ipa = ipa.convert(txt)
+        
         self.render("index.html", txt=txt, _ipa=_ipa)
         
 
@@ -171,8 +170,22 @@ class RecordHandler(tornado.web.RequestHandler):
     def get(self):
         txt = ""
         _ipa = ""
-        self.render("record.html", posts=txt, _ipa=_ipa)
+        bd = db.execute('select body from post where id = (select max(id) from post);').fetchall()
+        print("bd: ", bd)
+        voicefile = bd[0][0]
+        print("voicefile: ", voicefile)
+        """
+        if voicefile:
+            txt = get_post(voicefile)
+            _ipa = ipa(txt)
 
+        else:
+            print("ERROR: cann't find %s", voicefile)
+        """
+
+        if not txt:
+            _ipa = ipa.convert(txt)
+        self.render("record.html", posts=txt, _ipa=_ipa)
 
 #import jinja2
 #jinja2_env = jinja2.Environment(loader=jinja2.FileSystemLoader('template/path/'), autoescape=False)
@@ -191,7 +204,7 @@ application = tornado.web.Application([
     (r'/ws', OpusDecoderWS),
     (r'/', MainHandler),
     (r'/record', RecordHandler),
-    #(r'/(.*)', tornado.web.StaticFileHandler, { 'path' : './www' }),
+    (r'/(.*)', tornado.web.StaticFileHandler, { 'path' : './www' }),
     #(r'.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
     ], **settings)
 
