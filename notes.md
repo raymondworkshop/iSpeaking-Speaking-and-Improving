@@ -1,5 +1,11 @@
 ### notes 
 
+#### 2019-07-22
+  * pronunciation checker
+    - compare with the function (txt to speech)
+  * todo
+    - txt to speech
+
 #### 2019-07-19
   * notes on mongodb
     - client = MongoClient('localhost', 27017)
