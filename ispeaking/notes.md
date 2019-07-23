@@ -1,6 +1,6 @@
  ### notes
  
  * on powershell
-   >  $env:FLASK_APP="ispeech.py"  
+   >  $env:FLASK_APP="app"  
    >  $env:FLASK_ENV = "development" 
    >  flask run 
