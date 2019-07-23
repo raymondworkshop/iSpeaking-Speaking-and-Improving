@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h1>{% block title %}Speaking & Improving{% endblock %}</h1>
+  
+  {% if g.user %}
+    <a class="action" href="{{ url_for('app.record') }}">Now Say ...</a>
+  {% endif %}
+  
+  
+{% endblock %}
+
+<!--
+<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+<script type="text/javascript" src="/speech/ispeech/static/recorder.js"></script>
+-->
+
+  <!--  record 
+  <input type="file" accept="audio/*" capture id="recorder">
+  <audio id="player" controls></audio>
+  <script>
+  var recorder = document.getElementById('recorder');
+  var player = document.getElementById('player');
+
+  recorder.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    // Do something with the audio file.
+    player.srcObject = file;
+  });
+  </script>
+-->
