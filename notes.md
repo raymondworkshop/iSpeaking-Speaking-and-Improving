@@ -1,5 +1,8 @@
 ### notes 
 
+#### 2019-07-24 
+  * read the paper 
+
 #### 2019-07-22
   * pronunciation checker
     - compare with the function (txt to speech)
