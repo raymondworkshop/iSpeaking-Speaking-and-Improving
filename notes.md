@@ -1,11 +1,21 @@
 ### notes 
 
+#### 2019-07-29 
+  * read the code on acoustic model 
+  * use LibriSpeech dataset 
+    - 2015-ICASSP-paper "an ASR corpus based on public domain audio books", Vassil Panayotov, Guoguo Chen, Daniel Povey and Sanjeev Khudanpur, ICASSP 2015" 
+
+  * TTS reader 
+    - 2019-paper "LibriTTS: A Corpus Derived from LibriSpeech for Text-to-Speech", Heiga Zen, Viet Dang, Rob Clark, Yu Zhang, Ron J. Weiss, Ye Jia, Zhifeng Chen, and Yonghui Wu, arXiv, 2019 
+
+
 #### 2019-07-24 
   * read the paper 
 
 #### 2019-07-22
   * pronunciation checker
-    - compare with the function (txt to speech)
+    - compare with the function (txt to speech) 
+
   * todo
     - txt to speech
 
@@ -95,8 +105,7 @@
 ](https://figshare.shef.ac.uk/articles/ShefCE_A_Cantonese-English_bilingual_speech_corpus_--_speech_recognition_model_sets_and_recording_transcripts/4522925)
     - [Corpus Linguistics in EdUHK](http://corpus.eduhk.hk/) 
     - [TIMIT](https://github.com/philipperemy/timit)
-    - [emoji translation](https://meowni.ca/emoji-translate/)
-   
+    - [emoji translation](https://meowni.ca/emoji-translate/) 
 
 #### 2019-06-25
   * about python 
@@ -114,7 +123,6 @@
   * ideas 
     - tts 
     - chatting 
-
 
 #### 2019-06-20
   * python doc 
