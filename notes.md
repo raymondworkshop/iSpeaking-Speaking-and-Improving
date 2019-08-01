@@ -1,11 +1,20 @@
 ### notes 
 
+#### 2019-08-01 
+  * using LibriSpeech dataset 
+  * feature engineering 
+    - Spectrograms - from audio into 2D tensors 
+  *
+
+#### 2019-07-30 
+  * feature engineering 
+
 #### 2019-07-29 
   * read the code on acoustic model 
   * use LibriSpeech dataset 
     - 2015-ICASSP-paper "an ASR corpus based on public domain audio books", Vassil Panayotov, Guoguo Chen, Daniel Povey and Sanjeev Khudanpur, ICASSP 2015" 
 
-  * TTS reader 
+  * compare with TTS reader 
     - 2019-paper "LibriTTS: A Corpus Derived from LibriSpeech for Text-to-Speech", Heiga Zen, Viet Dang, Rob Clark, Yu Zhang, Ron J. Weiss, Ye Jia, Zhifeng Chen, and Yonghui Wu, arXiv, 2019 
 
 
