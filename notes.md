@@ -4,7 +4,11 @@
   * using LibriSpeech dataset 
   * feature engineering 
     - Spectrograms - from audio into 2D tensors 
-  *
+  * acoustic model 
+    - train a simple RNN model
+
+#### 2019-07-31 
+  * will talk with Dr. Lam 
 
 #### 2019-07-30 
   * feature engineering 

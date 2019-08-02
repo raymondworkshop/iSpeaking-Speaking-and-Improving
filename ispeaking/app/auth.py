@@ -13,7 +13,7 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.route('/setting', methods=('GET', 'POST'))
 def setting():
-    return
+    return render_template('auth/setting.html')
 
 
 @bp.route('/register', methods=('GET', 'POST'))
