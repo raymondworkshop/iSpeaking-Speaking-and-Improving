@@ -56,16 +56,12 @@ from . import SpeechModel251
 
 
 UPLOAD_FOLDER = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
-UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
+#UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
 ALLOWED_EXTENSIONS = set(['wav'])
 #
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-import string
-import re
-
-def extract_words(s):
-    return [re.sub('^[{0}]+|[{0}]+$'.format(string.punctuation), '', w) for w in s.split()]
+from . import utils
 
 @bp.route('/')
 def index():
@@ -184,7 +180,6 @@ def get_post(_demo, check_author=True):
     except sr.RequestError as e:
         print("Error; {0}".format(e))
 
-
     #print(txt)  
     return txt
 
@@ -237,7 +232,6 @@ def upload():
 
         txt = get_post(demo)
         #_ipa = ipa.convert(txt)
-    
 
     else:
         print("No file")
@@ -266,7 +260,7 @@ def upload_file():
     if request.method == 'POST':
         # get original txt
         org_txt = request.form['input'].lower()
-        org_list = extract_words(org_txt)
+        org_list = utils.extract_words(org_txt)
         #print("Original txt: ", org_list)
 
         # speech
@@ -282,7 +276,7 @@ def upload_file():
 
             if language == 0:
                 _txt = get_post(filename)
-                speech_list = extract_words(_txt)
+                speech_list = utils.extract_words(_txt)
                 print("Speech txt: ", speech_list)
                 
                 #_ipa = ipa.convert(_txt)
