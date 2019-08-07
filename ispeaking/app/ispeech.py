@@ -56,6 +56,7 @@ from . import SpeechModel251
 
 
 UPLOAD_FOLDER = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
+UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
 ALLOWED_EXTENSIONS = set(['wav'])
 #
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -96,11 +97,12 @@ def record():
     """
 
     txt = "Hello, World"
-    txt = "You have to take control of your learning. We’ll show you how to do it in a fun and effective way."
-    _ipa = ipa.convert(txt)
+    org_txt = "You have to take control of your learning. We’ll show you how to do it in a fun and effective way."
+    #_ipa = ipa.convert(txt)
+    diff_dict = {}
     
     #ws.send
-    return render_template('ispeech/record.html', posts=txt)
+    return render_template('ispeech/record.html', posts=org_txt, diff_dict=diff_dict)
 
 """
 @bp.route()
@@ -296,17 +298,17 @@ def upload_file():
                 pass
 
         #
-        _dict = {}
+        diff_dict = {}
         if speech_list:
             for word in org_list:
                 if word not in speech_list:
-                    _dict[word] = ipa.convert(word)
+                    diff_dict[word] = ipa.convert(word)
                     #diff_list.append(word)
 
         #txt = " ".join(diff_list)
-        print("diff txt: ", _dict)
+        print("diff txt: ", diff_dict)
         #ws.send
-        return render_template('ispeech/record.html', posts=org_txt, _dict=_dict)
+        return render_template('ispeech/record.html', posts=org_txt, diff_dict=diff_dict)
 
 """
 def genHeader(sampleRate, bitsPerSample, channels):

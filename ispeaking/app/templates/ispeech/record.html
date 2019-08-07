@@ -96,10 +96,9 @@
             <dd><input type=submit value=Checking>
              <br/>
              <br/>
-             <dt>Check The following words:
              <br/>
-             {% for word, ipa in _dict.items() %}
-                 <dd> {{ word|safe}} -  <mark>{{ ipa|safe }}</mark>
+             {% for word, _ipa in diff_dict.items() %}
+                 <dd> {{ word|safe}} -  <mark>{{ _ipa|safe }}</mark>
              {% endfor %}
              
             <br/>

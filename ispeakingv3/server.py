@@ -97,7 +97,7 @@ class OpusDecoderWS(tornado.websocket.WebSocketHandler):
         #op_frm_dur : opus frame duration
 
         txt = ""
-        filename = DIR + str(uuid.uuid4()) + '.wav'
+        filename = DATADIR + str(uuid.uuid4()) + '.wav'
         
         wave_write = wave.open(filename, 'wb')
         wave_write.setnchannels(1)
