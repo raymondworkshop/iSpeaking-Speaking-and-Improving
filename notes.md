@@ -1,5 +1,10 @@
 ### notes 
 
+#### 2019-08-06 
+
+#### 2019-08-02 
+  * compare using 
+
 #### 2019-08-01 
   * using LibriSpeech dataset 
   * feature engineering 
