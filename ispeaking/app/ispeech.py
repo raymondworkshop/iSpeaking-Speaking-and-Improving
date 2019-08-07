@@ -20,6 +20,7 @@ from werkzeug.exceptions import abort
 #from flask_socketio import SocketIO, emit
 #from flask_socketio import SocketIO, emit, disconnect
 from werkzeug.serving import run_simple
+#from flask_uploads import UploadSet
 
 #import scipy.io.wavfile
 import numpy as np
@@ -50,7 +51,6 @@ import eng_to_ipa as ipa
 from scipy.io import wavfile
 import math
 import numpy as np
-
 #
 from . import SpeechModel251
 
@@ -59,6 +59,12 @@ UPLOAD_FOLDER = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
 ALLOWED_EXTENSIONS = set(['wav'])
 #
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+import string
+import re
+
+def extract_words(s):
+    return [re.sub('^[{0}]+|[{0}]+$'.format(string.punctuation), '', w) for w in s.split()]
 
 @bp.route('/')
 def index():
@@ -154,7 +160,7 @@ def get_post(_demo, check_author=True):
     # Convert Audio to Audio Source Format
     #harvard = sr.AudioData(demo, 16000, 2)
     with demo as source:
-        #r.adjust_for_ambient_noise(source)
+        r.adjust_for_ambient_noise(source)
         #print("the demo: ", source)
         audio = r.record(source)
     
@@ -175,6 +181,7 @@ def get_post(_demo, check_author=True):
         print("Could not recognize the audio")
     except sr.RequestError as e:
         print("Error; {0}".format(e))
+
 
     #print(txt)  
     return txt
@@ -240,6 +247,7 @@ datapath = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\speech_mod
 @bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
     #  get the selected language from the user
+    # English
     language = 0
     """
     db = get_db()
@@ -250,13 +258,20 @@ def upload_file():
     print("language: ", language)
     """
     # mandarin
-    language = 2 
+    #language = 2 
+    #print('language: ', language)
 
     if request.method == 'POST':
+        # get original txt
+        org_txt = request.form['input'].lower()
+        org_list = extract_words(org_txt)
+        #print("Original txt: ", org_list)
+
+        # speech
         file = request.files['file']
         txt = ""
         _ipa = ""
-
+        speech_list = []
         if file and allowed_file(file.filename):
             filename = os.path.join(UPLOAD_FOLDER, secure_filename(file.filename))
             file.save(filename)
@@ -264,10 +279,12 @@ def upload_file():
             print('file uploaded successfully')
 
             if language == 0:
-                txt = get_post(filename)
-                print(txt)
-                _ipa = ipa.convert(txt)
-                print(_ipa)
+                _txt = get_post(filename)
+                speech_list = extract_words(_txt)
+                print("Speech txt: ", speech_list)
+                
+                #_ipa = ipa.convert(_txt)
+                #print(_ipa)
             elif language == 2:
                 #mandarin
                 #load the module 
@@ -277,9 +294,19 @@ def upload_file():
                 _ipa = ms.RecognizeSpeech_FromFile(filename)
             else:
                 pass
-    
+
+        #
+        _dict = {}
+        if speech_list:
+            for word in org_list:
+                if word not in speech_list:
+                    _dict[word] = ipa.convert(word)
+                    #diff_list.append(word)
+
+        #txt = " ".join(diff_list)
+        print("diff txt: ", _dict)
         #ws.send
-        return render_template('ispeech/record.html', posts=txt)
+        return render_template('ispeech/record.html', posts=org_txt, _dict=_dict)
 
 """
 def genHeader(sampleRate, bitsPerSample, channels):

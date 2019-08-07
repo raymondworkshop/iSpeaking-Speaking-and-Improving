@@ -74,7 +74,7 @@
 -->
 
 <div id="controls">
-    <form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data">
+    <form action = "/uploader" method = "POST" enctype = "multipart/form-data">
           <dl>
             <label for="language">Choose Language
                 <select name="language" id="language" required>
@@ -89,16 +89,23 @@
             <dt>Please type a sentence:
             <dd><textarea name=input rows=1 cols=80 placeholder="Monica, running down the street, tripped.">{{ posts|safe}}</textarea> 
             <br/>
-            <br/>
-            <dt> [TODO-TTS] Load the sentence and Listen ... 
-            <br/>
-            <br/>
-
             <dt>Upload an audio file <small>(no longer than 10 sec)</small> containing the sentence
             <dd><input type = "file" name = "file" accept="audio/*" capture="microphone" id="recorder">
             <br/>  
             <br/>
-           <dd><input type=submit value=checking>
+            <dd><input type=submit value=Checking>
+             <br/>
+             <br/>
+             <dt>Check The following words:
+             <br/>
+             {% for word, ipa in _dict.items() %}
+                 <dd> {{ word|safe}} -  <mark>{{ ipa|safe }}</mark>
+             {% endfor %}
+             
+            <br/>
+            <br/>
+            <dt> [TODO-TTS] Listening ... 
+            <br/>
          </dl>
     </form>
 
