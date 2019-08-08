@@ -1,6 +1,8 @@
 ### notes 
 
 #### 2019-08-06 
+  * todo
+    - change current way into Spectrograms way
 
 #### 2019-08-02 
   * compare using 
