@@ -1,5 +1,11 @@
 ### notes 
 
+#### 2019-08-14 
+  * paper reading 
+
+#### 2019-08-08 
+  * programming 
+
 #### 2019-08-06 
   * todo
     - change current way into Spectrograms way
