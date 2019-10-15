@@ -1,5 +1,23 @@
 ### notes 
 
+#### 2019-08-21 
+  * programming on the feature engineering
+
+#### 2019-08-19 
+  * On pre-progress data 
+
+#### 2019-08-16  
+  * programming on test part 
+
+#### 2019-08-15 
+  * programming on rnn module 
+
+#### 2019-08-14 
+  * paper reading 
+
+#### 2019-08-08 
+  * programming 
+
 #### 2019-08-06 
   * todo
     - change current way into Spectrograms way
