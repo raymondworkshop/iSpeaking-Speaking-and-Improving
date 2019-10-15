@@ -1,6 +1,7 @@
 
 
-#### DEMO - iSpeaking: ASR for L2 (english&mandarin) learners
+#### DEMO - iSpeaking: Speaking and Improving
+* ASR for L2 (english&mandarin) learners
 ![iSpeaking](https://github.com/muyun/dev.speech/blob/master/ispeaking/speech_demo_1.png "Speaking and Improving") 
 
 #### reference
