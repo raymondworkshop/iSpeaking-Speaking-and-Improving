@@ -2,7 +2,7 @@
 
 #### DEMO - iSpeaking: Speaking and Improving
 * ASR for L2 (english&chinese) learners
-![iSpeaking](https://github.com/muyun/dev.speech/blob/master/ispeaking/demo/speech_demo_1.png "Speaking and Improving") 
+![iSpeaking](https://github.com/muyun/dev.speech/blob/master/ispeaking/demo/speech_demo_2.png "Speaking and Improving") 
 
 #### reference
 
