@@ -55,8 +55,8 @@ import numpy as np
 from . import SpeechModel251
 
 
-UPLOAD_FOLDER = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
-UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
+UPLOAD_FOLDER = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\data\\"
+#UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
 ALLOWED_EXTENSIONS = set(['wav'])
 #
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -240,7 +240,7 @@ def upload():
 
 datapath = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\speech_model\\"
 #datapath = '/data/raymond/workspace/speech/dataset/'
-datapath = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/'
+#datapath = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/'
 @bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
     #  get the selected language from the user
@@ -271,6 +271,7 @@ def upload_file():
         txt = ""
         _ipa = ""
         speech_list = []
+        diff_dict = {}
         if file and allowed_file(file.filename):
             filename = os.path.join(UPLOAD_FOLDER, secure_filename(file.filename))
             file.save(filename)
@@ -284,30 +285,45 @@ def upload_file():
                 
                 #_ipa = ipa.convert(_txt)
                 #print(_ipa)
-            elif language == 2:
+                print("org_list:", org_list)
+                
+                if speech_list:
+                    for word, org_ipa, speech_ipa in zip(org_txt, org_list, speech_list):
+                        if word not in speech_list:
+                            diff_dict[word] = ipa.convert(word)
+                            #diff_list.append(word)
+            
+            elif language == 1:
                 #mandarin
                 #load the module 
                 ms = SpeechModel251.ModelSpeech(datapath)
-                ms.LoadModel(datapath + 'speech_model251_e_0_step_42500.model')
+                ms.LoadModel(datapath + 'speech_model251_e_0_step_266000.model')
                 print("filename:", filename)
-                _ipa = ms.RecognizeSpeech_FromFile(filename)
-                #print("_ipa:", _ipa)
+                speech_list = ms.RecognizeSpeech_FromFile(filename)
+                print("speech_list:", speech_list)
+                #
                 import re
                 import pinyin
                 org_list = re.findall(r'(\w+?\d)', pinyin.get(org_txt,format="numerical"))
-                speech_list = _ipa
-                print("speech_list:", speech_list)
+                print("org_list:", org_list)
+                #
+                """
+                if speech_list:
+                    for word, speech_ipa, org_ipa in zip(org_txt, speech_list, org_list):
+                        print("word: %s, speech_ipa: %s, org_ipa: %s" % (word, speech_ipa, org_ipa))
+                        if speech_ipa.lower() != org_ipa.lower():
+                            diff_dict[word] = org_ipa
+                """
+
+                if speech_list:
+                    for word, org_ipa, speech_ipa in zip(org_txt, org_list, speech_list):
+                        if org_ipa not in speech_list:
+                            print("word: %s, org_ipa: %s" % (word, org_ipa))
+                            diff_dict[word] = {speech_ipa: org_ipa}
 
             else:
                 pass
 
-        print("org_list:", org_list)
-        diff_dict = {}
-        if speech_list:
-            for word in org_list:
-                if word not in speech_list:
-                    diff_dict[word] = ipa.convert(word)
-                    #diff_list.append(word)
 
         #txt = " ".join(diff_list)
         print("diff txt: ", diff_dict)

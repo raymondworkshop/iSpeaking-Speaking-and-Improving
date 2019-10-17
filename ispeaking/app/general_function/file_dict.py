@@ -5,6 +5,9 @@
 '''
 import platform as plat
 
+DICT_FILE = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/dict.txt'
+DICT_FILE = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\speech_model\\dict.txt"
+
 def GetSymbolList_trash(datapath):
     '''
     加载拼音符号列表，用于标记符号
@@ -16,7 +19,7 @@ def GetSymbolList_trash(datapath):
             datapath = datapath + '/'
     """
     #datapath = '/data/raymond/workspace/speech/' 
-    txt_obj=open( '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/dict.txt','r',encoding='UTF-8') # 打开文件并读入
+    txt_obj=open(DICT_FILE ,'r',encoding='UTF-8') # 打开文件并读入
     txt_text=txt_obj.read()
     txt_lines=txt_text.split('\n') # 文本分割
     list_symbol=[] # 初始化符号列表
@@ -46,7 +49,7 @@ def GetSymbolList(datapath):
         print('*[Message] Unknown System\n')
         datapath_ += '/'  
     
-    txt_obj=open('/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/dict.txt','r',encoding='UTF-8') # 打开文件并读入  
+    txt_obj=open(DICT_FILE,'r',encoding='UTF-8') # 打开文件并读入  
     txt_text=txt_obj.read()        
     txt_lines=txt_text.split('\n') # 文本分割    
     list_symbol=[] # 初始化符号列表

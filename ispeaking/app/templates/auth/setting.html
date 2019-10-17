@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block body %}
+
+{% if session.logged_in %}
+    <form action="{{ url_for('app.setting') }}" method=post class=add-entry>
+      
+      <dl>
+        <!--
+        <dt>Input:
+        <dd><textarea name=wordinput rows=3 cols=40></textarea>
+        <br/>
+        <br/>
+        <br/>
+        -->
+        <!--
+        <dt>{{ form.algs.label }}    
+        <dd>{{ form.algs}}
+
+        <br/>
+        <dd>{{ form.submit }}
+        -->
+        <label for="language"> Language
+                <select name="language" id="language" required>
+                    <option value="0" selected>English</option>
+                    <option value="1">Mandarin</option>
+                    <option value="2">Cantonese?</option>
+                    <option value="3">Others?</option>
+                </select>
+         </label>
+        <br>
+    
+        <input type="submit" value="Register">
+      </dl>
+
+
+    </form>
+{% endif %}
+
+
+{% block content %}
+  <form method="post">
+
+    <label for="language"> Language
+    <select name="language" id="language" required>
+        <option value="0" selected>English</option>
+        <option value="1">Cantonese</option>
+        <option value="2">Mandarin</option>
+        <option value="3">Other?</option>
+    </select>
+    </label>
+    <br>
+    <!--
+    <input type="submit" value="Log In">
+    -->
+  </form>
+{% endblock %}
+
+
+{% endblock %}
