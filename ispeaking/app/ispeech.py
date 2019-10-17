@@ -56,7 +56,7 @@ from . import SpeechModel251
 
 
 UPLOAD_FOLDER = 'C:/Users/raymondzhao/myproject/dev.speech/speech/data/'
-#UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
+UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
 ALLOWED_EXTENSIONS = set(['wav'])
 #
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -240,6 +240,7 @@ def upload():
 
 datapath = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\speech_model\\"
 #datapath = '/data/raymond/workspace/speech/dataset/'
+datapath = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/'
 @bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
     #  get the selected language from the user
@@ -255,13 +256,13 @@ def upload_file():
     """
     # mandarin
     #language = 2 
-    #print('language: ', language)
+    print('language: ', language)
 
     if request.method == 'POST':
         # get original txt
         org_txt = request.form['input'].lower()
         org_list = utils.extract_words(org_txt)
-        #print("Original txt: ", org_list)
+        print("Original txt: ", org_txt)
 
         # speech
         file = request.files['file']
@@ -285,13 +286,20 @@ def upload_file():
                 #mandarin
                 #load the module 
                 ms = SpeechModel251.ModelSpeech(datapath)
-                ms.LoadModel(datapath + 'speech_model251_e_0_step_266000.model')
-
+                ms.LoadModel(datapath + 'speech_model251_e_0_step_42500.model')
+                print("filename:", filename)
                 _ipa = ms.RecognizeSpeech_FromFile(filename)
+                #print("_ipa:", _ipa)
+                import re
+                import pinyin
+                org_list = re.findall(r'(\w+?\d)', pinyin.get(org_txt,format="numerical"))
+                speech_list = _ipa
+                print("speech_list:", speech_list)
+
             else:
                 pass
 
-        #
+        print("org_list:", org_list)
         diff_dict = {}
         if speech_list:
             for word in org_list:
