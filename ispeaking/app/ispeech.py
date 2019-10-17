@@ -244,8 +244,10 @@ datapath = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/
 @bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
     #  get the selected language from the user
+    language = int(request.form['language'])
+    print('org_language: ', language)
     # English
-    language = 0
+    #language = org_language
     """
     db = get_db()
         
@@ -256,7 +258,7 @@ def upload_file():
     """
     # mandarin
     #language = 2 
-    print('language: ', language)
+    #print('language: ', language)
 
     if request.method == 'POST':
         # get original txt
