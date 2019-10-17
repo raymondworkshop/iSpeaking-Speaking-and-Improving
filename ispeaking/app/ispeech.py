@@ -304,7 +304,9 @@ def upload_file():
                 #
                 import re
                 import pinyin
-                org_list = re.findall(r'(\w+?\d)', pinyin.get(org_txt.replace(' ', ''),format="numerical"))
+                org_txt = org_txt.replace(' ', '')
+
+                org_list = re.findall(r'(\w+?\d)', pinyin.get(org_txt,format="numerical"))
                 print("org_list:", org_list)
                 #
                 """
