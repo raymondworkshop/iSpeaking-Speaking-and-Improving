@@ -56,7 +56,7 @@ from . import SpeechModel251
 
 
 UPLOAD_FOLDER = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\data\\"
-UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
+#UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
 ALLOWED_EXTENSIONS = set(['wav'])
 #
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -240,7 +240,7 @@ def upload():
 
 datapath = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\speech_model\\"
 #datapath = '/data/raymond/workspace/speech/dataset/'
-datapath = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/'
+#datapath = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/'
 @bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
     #  get the selected language from the user
@@ -304,7 +304,7 @@ def upload_file():
                 #
                 import re
                 import pinyin
-                org_list = re.findall(r'(\w+?\d)', pinyin.get(org_txt,format="numerical"))
+                org_list = re.findall(r'(\w+?\d)', pinyin.get(org_txt.replace(' ', ''),format="numerical"))
                 print("org_list:", org_list)
                 #
                 """
