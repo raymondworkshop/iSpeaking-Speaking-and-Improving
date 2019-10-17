@@ -277,7 +277,7 @@ def upload_file():
             file.save(filename)
 
             print('file uploaded successfully')
-
+            _org_txt = ''
             if language == 0:
                 _txt = get_post(filename)
                 speech_list = utils.extract_words(_txt)
@@ -304,9 +304,13 @@ def upload_file():
                 #
                 import re
                 import pinyin
-                org_txt = org_txt.replace(' ', '')
+                from hanziconv import HanziConv
+                
+                org_simplied_txt = HanziConv.toSimplified(org_txt)
+                org_simplied_txt = org_simplied_txt.replace(' ', '')
+                print("org_simplied_txt:", org_simplied_txt)
 
-                org_list = re.findall(r'(\w+?\d)', pinyin.get(org_txt,format="numerical"))
+                org_list = re.findall(r'(\w+?\d)', pinyin.get(org_simplied_txt,format="numerical"))
                 print("org_list:", org_list)
                 #
                 """

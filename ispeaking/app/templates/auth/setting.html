@@ -20,7 +20,7 @@
         <dd>{{ form.submit }}
         -->
         <label for="language"> Language
-                <select name="language" id="language" required>
+                <select name="language" id="language" onchange="this.form.submit();" required>
                     <option value="0" selected>English</option>
                     <option value="1">Mandarin</option>
                     <option value="2">Cantonese?</option>
@@ -35,7 +35,6 @@
 
     </form>
 {% endif %}
-
 
 {% block content %}
   <form method="post">
