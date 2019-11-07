@@ -1,7 +1,7 @@
-
+#### Description  
+This is a web-based automatic system for L2 (English&Chinese) learners, which could recognize learners' voice and compares that with the correct way to pronounce anything. Trainees could learn anytime, anywhere, and get instant feedback from proprietary artificial intelligence technology. This is very helpful when trainees track learning progress and specific patterns, and thus improve their speaking clearly and confidently like their own mother tongue.
 
 #### DEMO - iSpeaking: Speaking and Improving
-* Automatic speech recognition (ASR, based on deep learning) for L2 (english&chinese) learners
 ![iSpeaking](https://github.com/muyun/dev.speech/blob/master/ispeaking/demo/speech_demo_3.png "Speaking and Improving") 
 
 ![iSpeaking](https://github.com/muyun/dev.speech/blob/master/ispeaking/demo/mandarin_demo.png "Speaking and Improving") 
