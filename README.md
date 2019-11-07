@@ -8,4 +8,4 @@ This is a web-based automatic system for L2 (English&Chinese) learners, which co
 
 #### reference
 
-####  Copyright (c) 2019 [HSUHK](https://dlc.hsu.edu.hk/)
+####  Copyright (c) 2019-2020 [HSUHK](https://dlc.hsu.edu.hk/)
