@@ -24,6 +24,6 @@ will go meet her wednesday at the train station.
    >  flask run 
 
 * on mac
-   > export FLASK_APP="app"
-   > export FLASK_ENV = "development" 
-   > flask run 
+   > export FLASK_APP="app"  
+   > export FLASK_ENV = "development"   
+   > flask run   
