@@ -1,5 +1,8 @@
 ### notes 
 
+##### Dataset
+TIMIT acoustic-Phonetic Continuous Speech Corpus is used for L2 English, and THCHS-30 - A Mandarin Speech Corpus is used for L2 Madarin
+
 #### 2019-08-21 
   * programming on the feature engineering
 

@@ -6,7 +6,7 @@
 import platform as plat
 
 DICT_FILE = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/dict.txt'
-DICT_FILE = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\speech_model\\dict.txt"
+#DICT_FILE = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\speech_model\\dict.txt"
 
 def GetSymbolList_trash(datapath):
     '''

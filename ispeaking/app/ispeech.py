@@ -56,7 +56,7 @@ from . import SpeechModel251
 
 
 UPLOAD_FOLDER = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\data\\"
-#UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
+UPLOAD_FOLDER = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/data/'
 ALLOWED_EXTENSIONS = set(['wav'])
 #
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -240,7 +240,7 @@ def upload():
 
 datapath = "C:\\Users\\raymondzhao\\myproject\\dev.speech\\ispeaking\\speech_model\\"
 #datapath = '/data/raymond/workspace/speech/dataset/'
-#datapath = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/'
+datapath = '/Users/zhaowenlong/workspace/proj/dev.speech/ispeaking/speech_model/'
 @bp.route('/uploader', methods= ['GET', 'POST'])
 def upload_file():
     #  get the selected language from the user
@@ -275,6 +275,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = os.path.join(UPLOAD_FOLDER, secure_filename(file.filename))
             file.save(filename)
+            print('filename:', filename)
 
             print('file uploaded successfully')
             _org_txt = ''
@@ -291,6 +292,7 @@ def upload_file():
                     for word in org_list:
                         if word not in speech_list:
                             diff_dict[word] = ipa.convert(word)
+                            print("_diff_dict:", diff_dict)
                             #diff_list.append(word)
             
             elif language == 1:
@@ -329,6 +331,9 @@ def upload_file():
 
             else:
                 pass
+
+        else:
+            print("ERROR: The Audio file should be (wav)")
 
 
         #txt = " ".join(diff_list)
